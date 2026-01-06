@@ -1,0 +1,50 @@
+/* styles.css */
+@import "tailwindcss";
+
+/* ================================
+   Tailwind v4 Theme Variables
+   Portfolio: Professional / Minimal
+   Inspired by: Apoorv Tyagi
+================================= */
+
+@theme {
+  /* -----------------------
+     Colors
+  ----------------------- */
+  
+  /* Backgrounds */
+  --color-bg-primary: #0B0B0C;
+  --color-bg-secondary: #111113;
+  --color-bg-tertiary: #1A1A1D;
+
+  /* Text */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #A1A1AA;
+  --color-text-muted: #6B6B70;
+
+  /* Borders & dividers */
+  --color-border-subtle: #1F1F23;
+  --color-border-muted: #2A2A2E;
+
+  /* Accent */
+  --color-accent-success: #22C55E;
+
+  /* Disabled / hint */
+  --color-ui-muted: #3F3F46;
+}
+
+/* ================================
+   Optional: Dark Mode Support
+================================= */
+.dark {
+  --color-bg-default: #0F172A;
+  --color-bg-surface: #1E293B;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #CBD5E1;
+  --color-primary-500: #38BDF8;
+  --color-secondary-500: #8B5CF6;
+  --color-accent-500: #FBBF24;
+  --breakpoint-xs:450px;
+}
+
+
