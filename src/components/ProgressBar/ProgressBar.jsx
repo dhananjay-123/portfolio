@@ -4,9 +4,9 @@ function ProgressBar() {
   const { scrollYProgress } = useScroll();
 
   return (
-    <div className=" h-[3px] relative z-50 ">
+    <div className=" h-[2px] relative z-50 ">
       {/* Track (full progress line) */}
-      <div className="absolute inset-0 bg-gray-500" />
+      <div className="absolute inset-0 bg-gray-800" />
 
       {/* Fill (animated progress) */}
       <motion.div
