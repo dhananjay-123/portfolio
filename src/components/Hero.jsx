@@ -31,7 +31,10 @@ always learning something new`}
       </div>
 
       <div className='text-accent-success pt-7 flex flex-col lg:flex-row gap-y-3 lg:items-center justify-center'>
-        <div className=''>OPEN TO WORK</div>
+        <div className='flex'>
+          
+          
+          <div className=''>OPEN TO WORK</div></div>
         <div className='w-full lg:w-[25%] h-[1px] lg:m-4 bg-gray-500'></div>
         <div className='text-text-muted'>Gwalior , india</div>
         <div className='w-full lg:w-[25%] h-[1px] lg:m-4 bg-gray-500'></div>

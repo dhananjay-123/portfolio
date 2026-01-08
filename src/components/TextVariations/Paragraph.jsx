@@ -1,4 +1,3 @@
-
 import React,{useRef} from 'react'
 import { Description } from '../../constants'
 
@@ -16,7 +15,7 @@ export default function Paragraph({value}) {
 
     const words = value.split(" ");
   return (
-    <p className='text-text-primary flex flex-wrap leading-[14px] py-10'
+    <p className='text-text-primary flex flex-wrap leading-[14px] py-10 justify-center '
     ref={element}
     
     >
