@@ -38,6 +38,8 @@ const HouseCanvas = () => {
         <OrbitControls
           enableZoom={false}
           enablePan={false}
+          minPolarAngle={Math.PI/3}
+          maxPolarAngle={Math.PI/3}
           target={[10, -30, 10]}   // 🔴 correct look-at
         />
       </Suspense>
