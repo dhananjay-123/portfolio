@@ -7,7 +7,7 @@ import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 import hero from "./hero.jpg";
-
+import herobanner from "./herobanner.png";
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
@@ -21,6 +21,10 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import card1 from "./card1.jpg";
+import card2 from "./card2.jpg";
+import card3 from "./card3.jpg";
+import card4 from "./card4.jpeg";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -61,4 +65,9 @@ export {
   jobit,
   tripguide,
   hero,
+  herobanner,
+  card1,
+  card2,
+  card3,
+  card4
 };

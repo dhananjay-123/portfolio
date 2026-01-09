@@ -10,12 +10,10 @@ const App = () => {
       <Navbar />
 
       
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/work" element={<Work />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <Hero />
+      <Work />
+      <About />
+      
     </HashRouter>
   );
 };

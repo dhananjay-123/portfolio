@@ -13,7 +13,7 @@ const Navbar = () => {
   const [active, setActive] = useState(" ")
 
   return (
-    <nav className="flex pt-5 px-5 sm:px-10 lg:px-40 fixed bg-bg-primary w-full justify-between mx-auto items-center">
+    <nav className="flex pt-5 px-4 sm:px-10 lg:px-40 fixed bg-bg-primary w-full z-60 justify-between mx-auto items-center">
 
 
       <Link to="/"
@@ -23,7 +23,7 @@ const Navbar = () => {
       <div className='flex-1 mx-10'><ProgressBar /></div>
       
 
-        <ul className='flex text-text-primary gap-10 list-none items-center h-10  overflow-hidden'>
+        <ul className='flex text-text-primary gap-10  list-none items-center h-10  overflow-hidden'>
           {
             NavLinks.map((Link, index) => (
               <li key={Link.id}
@@ -38,7 +38,7 @@ const Navbar = () => {
                   initial="initial"
                   whileHover="hovered"
                   href={`#${Link.id}`}
-                  className={`sm:hidden block ${index === 2 ? "" : "hidden"} relative h-6 overflow-hidden `}
+                  className={`sm:hidden block ${index === 2 ? "" : "hidden"} relative h-6  `}
 
                 >
                   <div

@@ -15,7 +15,7 @@ export default function Paragraph({value}) {
 
     const words = value.split(" ");
   return (
-    <p className='text-text-primary flex flex-wrap leading-[14px] py-10 justify-center '
+    <p className='text-text-primary  flex flex-wrap leading-[14px] py-20  lg:pt-10 justify-center items-center '
     ref={element}
     
     >
@@ -58,9 +58,9 @@ const Word = ({children,progress,range}) => {
 const Character = ({children,range,progress}) => {
     const opacity = useTransform(progress,range,[0,1])
     return (
-        <span className='relative'>
+        <span className='relative z-0'>
             <span
-            className='opacity-[0.1] absolute'
+            className='opacity-[0.1] absolute z-0'
             >{children}</span>
             <motion.span style={{opacity:opacity}}>
             {children}

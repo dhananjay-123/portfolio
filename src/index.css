@@ -6,7 +6,9 @@
    Portfolio: Professional / Minimal
    Inspired by: Apoorv Tyagi
 ================================= */
-
+html {
+  scroll-behavior: smooth;
+}
 @theme {
   /* -----------------------
      Colors
