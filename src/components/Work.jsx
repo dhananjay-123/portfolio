@@ -58,7 +58,7 @@ function Work() {
 
 
   return(
-    <div ref={targetRef} className='w-full pt-1 justify-center px-7 sm:px-24 lg:px-40 relative pb-[18px] '>
+    <div ref={targetRef} className='w-full pt-1 bg-bg-primary justify-center px-7 sm:px-24 lg:px-40 relative pb-[18px] '>
       <motion.div 
       style={{scale:animation[0].scale , opacity:animation[0].opacity}}
       className='text-text-primary text-5xl sticky top-20 lg:text-7xl overflow-clip items-center uppercase h-[200px] z-10 flex  justify-center'>
