@@ -1,5 +1,5 @@
-import React,{useRef} from 'react'
-import { Description } from '../../constants'
+import {useRef} from 'react'
+
 
 import { useScroll,motion, useTransform } from 'framer-motion'
 

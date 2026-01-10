@@ -1,6 +1,5 @@
-import React, { useRef } from 'react'
-import { logo, hero ,herobanner} from '../assets'
-import { motion, useScroll } from 'framer-motion'
+
+import { logo ,herobanner} from '../assets'
 import { Description } from '../constants'
 import AnimatedText from './TextVariations/AnimatedText'
 import Paragraph from './TextVariations/Paragraph'

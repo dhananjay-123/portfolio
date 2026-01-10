@@ -14,7 +14,7 @@ const App = () => {
         <Work />
       </section>
 
-      <section id="about">
+      <section id="about" className="scroll-mt-25">
         <About />
       </section>
 

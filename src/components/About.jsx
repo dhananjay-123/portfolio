@@ -1,6 +1,7 @@
 import Timeline from "../components/WorkTimeline/Timeline";
 import TimelineItem from "../components/WorkTimeline/TimelineItem";
 import { workExperience } from "../constants";
+import HorizontalScroll from "./HorizontalScroll/HorizontalScroll";
 
 const About = () => {
   return (
@@ -21,6 +22,8 @@ const About = () => {
           />
         ))}
       </Timeline>
+      <h1 className="text-text-primary text-5xl mt-10 sticky top-20 mb-10">Skills and Tools </h1>
+      <HorizontalScroll />
     </section>
   );
 };
