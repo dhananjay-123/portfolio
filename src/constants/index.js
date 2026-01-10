@@ -1,14 +1,16 @@
 import {card1, card2, card3, card4} from "../assets"
 
 export const NavLinks = [
+
+    {
+        id:"work" , title:"Work"
+    },
     {
         id : "about", title:"About"
 
     },
 
-    {
-        id:"work" , title:"Work"
-    },
+    
     {
         id:"contact" , title : "Contact"
     }

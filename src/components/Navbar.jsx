@@ -17,7 +17,12 @@ const Navbar = () => {
 
 
       <Link to="/"
-        onClick={() => setActive("")}
+        onClick={() => {setActive("");
+
+          window.scrollTo(0,0)
+        }
+
+        }
         className="text-text-primary hover:text-text-muted flex">Dhananjay&nbsp;<span className='sm:block hidden'> Agrawal</span></Link>
 
       <div className='flex-1 mx-10'><ProgressBar /></div>
@@ -28,6 +33,7 @@ const Navbar = () => {
             NavLinks.map((Link, index) => (
               <li key={Link.id}
                 onClick={() => setActive(Link.title)}
+                
                 className={
                   `${active === Link.title ? "text-text-secondary" : "text-text-primary"} cursor-pointer  items-center justify-center relative flex`
                 }
