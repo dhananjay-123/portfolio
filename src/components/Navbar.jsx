@@ -1,151 +1,128 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-
-import { Link } from 'react-router-dom';
-import { NavLinks } from '../constants';
-import ProgressBar from './ProgressBar/ProgressBar';
+import { Link } from 'react-router-dom'
+import { NavLinks } from '../constants'
+import ProgressBar from './ProgressBar/ProgressBar'
+import ThemeToggle from './ThemeToggle'
 
 const Navbar = () => {
-
-  const DURATION=0.25;
-  const STAGGER = 0.025;
+  const DURATION = 0.25
+  const STAGGER = 0.025
 
   const [active, setActive] = useState(" ")
 
   return (
     <nav className="flex pt-5 px-4 sm:px-10 lg:px-40 fixed bg-bg-primary w-full z-60 justify-between mx-auto items-center">
 
+      {/* Logo */}
+      <Link
+        to="/"
+        onClick={() => {
+          setActive("")
+          window.scrollTo(0, 0)
+        }}
+        className="text-text-primary hover:text-text-muted flex"
+      >
+        Dhananjay&nbsp;<span className='sm:block hidden'> Agrawal</span>
+      </Link>
 
-      <Link to="/"
-        onClick={() => {setActive("");
+      {/* Horizontal Progress Bar */}
+      <div className='flex-1 mx-10'>
+        <ProgressBar />
+      </div>
 
-          window.scrollTo(0,0)
-        }
+      {/* Nav Links */}
+      <ul className='flex text-text-primary gap-10 list-none items-center h-10 overflow-hidden'>
+        {NavLinks.map((LinkItem, index) => {
+          const isContact = LinkItem.title.toLowerCase() === "contact"
 
-        }
-        className="text-text-primary hover:text-text-muted flex">Dhananjay&nbsp;<span className='sm:block hidden'> Agrawal</span></Link>
+          return (
+            <li
+              key={LinkItem.id}
+              onClick={() => setActive(LinkItem.title)}
+              className={`${active === LinkItem.title ? "text-text-secondary" : "text-text-primary"} cursor-pointer items-center justify-center relative flex`}
+            >
 
-      <div className='flex-1 mx-10'><ProgressBar /></div>
-      
-
-        <ul className='flex text-text-primary gap-10  list-none items-center h-10  overflow-hidden'>
-          {
-            NavLinks.map((Link, index) => (
-              <li key={Link.id}
-                onClick={() => setActive(Link.title)}
-                
-                className={
-                  `${active === Link.title ? "text-text-secondary" : "text-text-primary"} cursor-pointer  items-center justify-center relative flex`
-                }
-              >
-
-
+              {/* Mobile: only Contact */}
+              {isContact && (
                 <motion.a
                   initial="initial"
                   whileHover="hovered"
-                  href={`#${Link.id}`}
-                  className={`sm:hidden block ${index === 2 ? "" : "hidden"} relative h-6  `}
-
+                  href={`#${LinkItem.id}`}
+                  className="sm:hidden block relative h-6"
                 >
-                  <div
-                className='flex'>
-                    {Link.title.split("").map((l,i) => {
-                      return <motion.span
-                      className='inline-block' 
-                       variants={{
-                    initial: { y: "0%" },
-                    hovered: { y: "-120%" }
-                  }}
-                  transition={{
-                    duration:DURATION,
-                    ease:"easeInOut",
-                    delay:STAGGER*i,
-                  }}
-                      
-                      key={i}>{l}</motion.span>
-                    })}
+                  <div className='flex'>
+                    {LinkItem.title.split("").map((l,i) => (
+                      <motion.span
+                        key={i}
+                        className='inline-block'
+                        variants={{ initial: { y: "0%" }, hovered: { y: "-120%" } }}
+                        transition={{ duration: DURATION, ease: "easeInOut", delay: STAGGER*i }}
+                      >
+                        {l}
+                      </motion.span>
+                    ))}
                   </div>
-                  <div className='absolute inset-0 flex items-center justify-center'> 
-                   {Link.title.split("").map((l,i) => {
-                      return <motion.span 
-                      transition={{
-                    duration:DURATION,
-                    ease:"easeInOut",
-                    delay:STAGGER*i,
-                  }}
-                      className='inline-block'
-                      variants={{
-                      initial: { y: "120%" },
-                      hovered: { y: "0%" }
-                    }}
-
-                      key={i}>{l}</motion.span>
-                    })}
+                  <div className='absolute inset-0 flex items-center justify-center'>
+                    {LinkItem.title.split("").map((l,i) => (
+                      <motion.span
+                        key={i}
+                        className='inline-block'
+                        variants={{ initial: { y: "120%" }, hovered: { y: "0%" } }}
+                        transition={{ duration: DURATION, ease: "easeInOut", delay: STAGGER*i }}
+                      >
+                        {l}
+                      </motion.span>
+                    ))}
                   </div>
-
-
                 </motion.a>
+              )}
 
-                <motion.a
-                  
-                  initial="initial"
-                  whileHover="hovered"
-                  href={`#${Link.id}`}
-                  className={`sm:block hidden hover:text-text-muted relative overflow-hidden h-6`}
-                  
-
-                ><div
-                className='flex'>
-                    {Link.title.split("").map((l,i) => {
-                      return <motion.span
-                      className='inline-block' 
-                       variants={{
-                    initial: { y: "0%" },
-                    hovered: { y: "-120%" }
-                  }}
-                  transition={{
-                    duration:DURATION,
-                    ease:"easeInOut",
-                    delay:STAGGER*i,
-                  }}
-                      
-                      key={i}>{l}</motion.span>
-                    })}
-                  </div>
-                  <div className='absolute inset-0 flex items-center justify-center'> 
-                   {Link.title.split("").map((l,i) => {
-                      return <motion.span 
-                      transition={{
-                    duration:DURATION,
-                    ease:"easeInOut",
-                    delay:STAGGER*i,
-                  }}
+              {/* Desktop / Tablet: all links */}
+              <motion.a
+                initial="initial"
+                whileHover="hovered"
+                href={`#${LinkItem.id}`}
+                className="sm:block hidden hover:text-text-muted relative overflow-hidden h-6"
+              >
+                <div className='flex'>
+                  {LinkItem.title.split("").map((l,i) => (
+                    <motion.span
+                      key={i}
                       className='inline-block'
-                      variants={{
-                      initial: { y: "120%" },
-                      hovered: { y: "0%" }
-                    }}
+                      variants={{ initial: { y: "0%" }, hovered: { y: "-120%" } }}
+                      transition={{ duration: DURATION, ease: "easeInOut", delay: STAGGER*i }}
+                    >
+                      {l}
+                    </motion.span>
+                  ))}
+                </div>
+                <div className='absolute inset-0 flex items-center justify-center'>
+                  {LinkItem.title.split("").map((l,i) => (
+                    <motion.span
+                      key={i}
+                      className='inline-block'
+                      variants={{ initial: { y: "120%" }, hovered: { y: "0%" } }}
+                      transition={{ duration: DURATION, ease: "easeInOut", delay: STAGGER*i }}
+                    >
+                      {l}
+                    </motion.span>
+                  ))}
+                </div>
+              </motion.a>
 
-                      key={i}>{l}</motion.span>
-                    })}
-                  </div>
+            </li>
+          )
+        })}
+      </ul>
 
+      {/* Theme Toggle */}
+      <div className="ml-5">
+        <ThemeToggle />
+      </div>
 
-                </motion.a>
-
-
-
-              </li>
-            ))
-          }
-        </ul>
-
-
-
-      
     </nav>
-  );
-
+  )
 }
 
 export default Navbar

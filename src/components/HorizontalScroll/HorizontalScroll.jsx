@@ -69,7 +69,7 @@ function TiltCard({ skill }) {
       ref={ref}
       onMouseMove={handleMove}
       onMouseLeave={reset}
-      className="w-[50vw] flex-shrink-0 transition-transform duration-300  ease-out will-change-transform"
+      className="w-[50vw] shrink-0 transition-transform duration-300  ease-out will-change-transform"
     >
       <div className="w-[45vw] h-[45vh] rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl p-3 sm:p-8 flex flex-col justify-between">
         
@@ -94,7 +94,7 @@ function TiltCard({ skill }) {
         </p>
 
         {/* Accent bar */}
-        <div className="h-1 w-20 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full" />
+        <div className="h-1 w-20 bg-linear-to-r from-indigo-400 to-purple-500 rounded-full" />
       </div>
     </div>
   );

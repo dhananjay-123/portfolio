@@ -10,15 +10,15 @@ const App = () => {
         <Hero />
       </section>
 
-      <section className="scroll-mt-25" id="work">
+      <section className="scroll-mt-20" id="work">
         <Work />
       </section>
 
-      <section id="about" className="scroll-mt-25">
+      <section id="about" className="scroll-mt-5">
         <About />
       </section>
 
-      <section id="contact" className="scroll-mt-25">
+      <section id="contact" className="scroll-mt-0">
         <Contact />
       </section>
     </HashRouter>

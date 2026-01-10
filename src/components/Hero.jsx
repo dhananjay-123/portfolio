@@ -5,6 +5,8 @@ import AnimatedText from './TextVariations/AnimatedText'
 import Paragraph from './TextVariations/Paragraph'
 import HouseCanvas from './Canvas/hero3d'
 
+import FuturisticHeading from './TextVariations/FuturisticHeading'
+
 const Hero = () => {
   return (
     <div className='w-full py-1 bg-bg-primary justify-center p-7 sm:px-24 lg:px-40 '>
@@ -32,7 +34,9 @@ const Hero = () => {
 
       <div className='pl-5 pr-5 pt-10'>
 
-        <div className='text-text-primary text-5xl lg:text-7xl'>Frontend <span className='text-text-muted'>Web</span> Developer</div>
+        <div className="pl-5 pr-5 pt-10">
+  <FuturisticHeading/>
+</div>
       </div>
 
       <div className='text-accent-success pt-17 flex flex-col-reverse lg:flex-row-reverse gap-y-3 lg:items-center justify-center'>

@@ -2,52 +2,146 @@
 @import "tailwindcss";
 
 /* ================================
-   Tailwind v4 Theme Variables
-   Portfolio: Professional / Minimal
-   Inspired by: Apoorv Tyagi
-================================= */
+   Global Styles
+================================ */
 html {
   scroll-behavior: smooth;
 }
 
-@theme {
-  /* -----------------------
-     Colors
-  ----------------------- */
-  
+/* ---------- Subtle glass glow (used in Contact heading) ---------- */
+.neon-text {
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.35),
+    0 0 14px rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- Glass inputs (neutral, premium) ---------- */
+.glass-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.glass-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.glass-input:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+/* ---------- Futuristic headings ---------- */
+.futuristic-gradient {
+  background: linear-gradient(120deg, #ffffff, #e5e7eb, #ffffff);
+  background-size: 200% 200%;
+  animation: gradientFlow 14s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+}
+
+.professional-gradient {
+  background: linear-gradient(110deg, #38bdf8, #6366f1, #38bdf8);
+  background-size: 200% 200%;
+  animation: professionalFlow 10s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 6px rgba(56, 189, 248, 0.25);
+}
+
+.monochrome-gradient {
+  background: linear-gradient(110deg, #ffffff, #d1d5db, #ffffff);
+  background-size: 200% 200%;
+  animation: monoFlow 12s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- Animations ---------- */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes professionalFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes monoFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================================
+   Light Mode (default)
+================================ */
+:root {
   /* Backgrounds */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F3F4F6;
+  --color-bg-tertiary: #E5E7EB;
+
+  /* Text */
+  --color-text-primary: #111113;
+  --color-text-secondary: #374151;
+  --color-text-muted: #6B7280;
+
+  /* Borders & dividers */
+  --color-border-subtle: #E5E7EB;
+  --color-border-muted: #D1D5DB;
+
+  /* Accent */
+  --color-accent-success: #16A34A;
+
+  /* Disabled / hint */
+  --color-ui-muted: #9CA3AF;
+}
+
+/* ================================
+   Dark Mode
+================================ */
+.dark {
   --color-bg-primary: #0B0B0C;
   --color-bg-secondary: #111113;
   --color-bg-tertiary: #1A1A1D;
 
-  /* Text */
   --color-text-primary: #FFFFFF;
   --color-text-secondary: #A1A1AA;
   --color-text-muted: #6B6B70;
 
-  /* Borders & dividers */
   --color-border-subtle: #1F1F23;
   --color-border-muted: #2A2A2E;
 
-  /* Accent */
   --color-accent-success: #22C55E;
 
-  /* Disabled / hint */
   --color-ui-muted: #3F3F46;
 }
 
 /* ================================
-   Optional: Dark Mode Support
-================================= */
-.dark {
-  --color-bg-default: #0F172A;
-  --color-bg-surface: #1E293B;
-  --color-text-primary: #F8FAFC;
-  --color-text-secondary: #CBD5E1;
-  --color-primary-500: #38BDF8;
-  --color-secondary-500: #8B5CF6;
-  --color-accent-500: #FBBF24;
-  --breakpoint-xs:450px;
-}
+   Tailwind variable mapping (no config needed)
+================================ */
+.bg-bg-primary { background-color: var(--color-bg-primary); }
+.bg-bg-secondary { background-color: var(--color-bg-secondary); }
+.bg-bg-tertiary { background-color: var(--color-bg-tertiary); }
 
+.text-text-primary { color: var(--color-text-primary); }
+.text-text-secondary { color: var(--color-text-secondary); }
+.text-text-muted { color: var(--color-text-muted); }
 
+.border-border-subtle { border-color: var(--color-border-subtle); }
+.border-border-muted { border-color: var(--color-border-muted); }
+
+.text-accent-success { color: var(--color-accent-success); }
+.bg-accent-success { background-color: var(--color-accent-success); }
+
+.text-ui-muted { color: var(--color-ui-muted); }

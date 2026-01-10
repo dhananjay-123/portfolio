@@ -63,6 +63,42 @@ export const workExperience = [
     }
 ]
 
+export const topicsData = [
+  {
+    index: 1,
+    heading: "Three.js",
+    title: "3D Graphics on the Web",
+    small: "WebGL made easy",
+    utility: "Create interactive 3D scenes and animations directly in the browser.",
+    description: "Three.js is a lightweight JavaScript library that makes working with WebGL simpler. You can build immersive 3D experiences, from visualizations to games, without deep knowledge of graphics programming."
+  },
+  {
+    index: 2,
+    heading: "Tailwind CSS",
+    title: "Utility-First Styling",
+    small: "Rapid UI development",
+    utility: "Design responsive and modern websites efficiently using utility classes.",
+    description: "Tailwind CSS is a utility-first CSS framework that allows developers to build custom designs quickly. It promotes consistency and flexibility while reducing the need for writing custom CSS."
+  },
+  {
+    index: 3,
+    heading: "React",
+    title: "Component-Based UI",
+    small: "Build interactive UIs",
+    utility: "Create reusable components and manage state efficiently for dynamic applications.",
+    description: "React is a popular JavaScript library for building user interfaces. It emphasizes declarative programming and component-based architecture, making large-scale UI development more maintainable and predictable."
+  },
+  {
+    index: 4,
+    heading: "JavaScript",
+    title: "Dynamic Web Programming",
+    small: "Core web language",
+    utility: "Add interactivity, control logic, and handle data on web applications.",
+    description: "JavaScript is the foundational language of the web, enabling dynamic behavior and interactivity. It's versatile, powering everything from front-end animations to server-side applications with Node.js."
+  }
+];
+
+
 export const skills = [
   {
     index: 1,

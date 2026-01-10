@@ -11,7 +11,7 @@ const About = () => {
   const [progress, setProgress] = useState(0);
 
   return (
-    <section className="w-full bg-bg-primary sm:px-24 lg:px-40 px-7 pb-16">
+    <section className="w-full pt-20 bg-bg-primary sm:px-24 lg:px-40 px-7 pb-16">
       
       {/* EXPERIENCE */}
       <h2 className="text-text-muted text-3xl lg:text-5xl mb-16">
