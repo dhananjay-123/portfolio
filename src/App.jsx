@@ -18,7 +18,7 @@ const App = () => {
         <About />
       </section>
 
-      <section id="contact">
+      <section id="contact" className="scroll-mt-25">
         <Contact />
       </section>
     </HashRouter>
