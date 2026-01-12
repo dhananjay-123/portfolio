@@ -95,6 +95,14 @@ export const topicsData = [
     small: "Core web language",
     utility: "Add interactivity, control logic, and handle data on web applications.",
     description: "JavaScript is the foundational language of the web, enabling dynamic behavior and interactivity. It's versatile, powering everything from front-end animations to server-side applications with Node.js."
+  },
+  {
+    index: 5,
+    heading: "JavaScript",
+    title: "Dynamic Web Programming",
+    small: "Core web language",
+    utility: "Add interactivity, control logic, and handle data on web applications.",
+    description: "JavaScript is the foundational language of the web, enabling dynamic behavior and interactivity. It's versatile, powering everything from front-end animations to server-side applications with Node.js."
   }
 ];
 

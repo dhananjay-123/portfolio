@@ -18,42 +18,48 @@ const Ball = ({ imgUrl, animate }) => {
 
   // Random spin speeds and directions
   const spin = useRef({
-    xSpeed: THREE.MathUtils.randFloat(1, 2),
-    ySpeed: THREE.MathUtils.randFloat(2, 3),
-    zSpeed: THREE.MathUtils.randFloat(0.5, 1.5),
+    xSpeed: THREE.MathUtils.randFloat(1.5, 2.5),
+    ySpeed: THREE.MathUtils.randFloat(2.5, 3.5),
+    zSpeed: THREE.MathUtils.randFloat(0.8, 1.5),
     xDir: Math.random() > 0.5 ? 1 : -1,
     yDir: Math.random() > 0.5 ? 1 : -1,
     zDir: Math.random() > 0.5 ? 1 : -1,
   }).current;
 
   useFrame((state, delta) => {
-    if (animate) {
-      meshRef.current.rotation.y += delta * spin.ySpeed * spin.yDir; // horizontal
-      meshRef.current.rotation.x += delta * spin.xSpeed * spin.xDir * 0.3; // small X tilt
-      meshRef.current.rotation.z += delta * spin.zSpeed * spin.zDir * 0.3; // small Z tilt
+    if (animate && meshRef.current) {
+      // Continuous spinning
+      meshRef.current.rotation.y += delta * spin.ySpeed * spin.yDir;
+      meshRef.current.rotation.x += delta * spin.xSpeed * spin.xDir * 0.5;
+      meshRef.current.rotation.z += delta * spin.zSpeed * spin.zDir * 0.5;
+
+      // Pulsating scale (breathing effect)
+      const scale = 2.5 + Math.sin(state.clock.elapsedTime * 2.5) * 0.15;
+      meshRef.current.scale.set(scale, scale, scale);
+
+      // Optional slight Y offset to enhance floating
+      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 1.5) * 0.25;
     }
   });
 
   return (
     <Float
-      speed={0.5}
-      rotationIntensity={0.4}
-      floatIntensity={0.08} // smooth floating
+      speed={0.9}              // faster float
+      rotationIntensity={0.8}   // stronger tilt
+      floatIntensity={0.2}      // more vertical movement
     >
-      <mesh ref={meshRef} castShadow receiveShadow scale={2.5}>
-        {/* Sphere geometry */}
-        <sphereGeometry args={[1, 32, 32]} />
+      <mesh ref={meshRef}>
+        <sphereGeometry args={[1, 16, 16]} />
         <meshStandardMaterial
           color="#111827"
           polygonOffset
           polygonOffsetFactor={-5}
           flatShading
         />
-        {/* Single decal */}
         <Decal
           position={[0, 0, 1]}
           rotation={[0, 0, 0]}
-          scale={0.9}
+          scale={1.1}   // slightly bigger decal for visibility
           map={decal}
           flatShading
         />
@@ -64,30 +70,35 @@ const Ball = ({ imgUrl, animate }) => {
 
 /* ===================== CANVAS ===================== */
 const BallCanvas = ({ icon }) => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
     if (inView) setAnimate(true);
   }, [inView]);
 
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+
   return (
     <div ref={ref} className="w-full h-full relative">
       <Canvas
-        frameloop="always"
+        frameloop="always" // needed for smooth spin & float
         dpr={[1, 2]}
         gl={{ preserveDrawingBuffer: true }}
-        camera={{ position: [0, 0, 5], fov: 45 }}
+        camera={{ position: [0, 0, 6], fov: 50 }} // slightly further out
         style={{ width: "100%", height: "100%" }}
       >
         <Suspense fallback={<CanvasLoader />}>
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={0.6} />
           <directionalLight
             position={[2, 2, 2]}
-            intensity={0.8}
+            intensity={1}
             color="#fef3c7"
           />
-          <OrbitControls enableZoom={true} enableRotate={true} />
+          <OrbitControls
+            enableZoom={!isMobile}
+            enableRotate={!isMobile}
+          />
           <Ball imgUrl={icon} animate={animate} />
         </Suspense>
         <Preload all />
