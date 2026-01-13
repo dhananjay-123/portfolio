@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { NavLinks } from '../constants'
 import ProgressBar from './ProgressBar/ProgressBar'
 import ThemeToggle from './ThemeToggle'
+//hello
 
 const Navbar = () => {
   const DURATION = 0.25
