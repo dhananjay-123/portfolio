@@ -12,7 +12,7 @@ const Navbar = () => {
   const [active, setActive] = useState(" ")
 
   return (
-    <nav className="flex pt-5 px-4 sm:px-10 lg:px-40 fixed bg-bg-primary w-full z-60 justify-between mx-auto items-center">
+    <nav className="flex pt-5 px-4 sm:px-10 lg:px-40 fixed bg-bg-primary w-full z-60 justify-between mx-auto items-center ">
 
       {/* Logo */}
       <Link
@@ -21,7 +21,7 @@ const Navbar = () => {
           setActive("")
           window.scrollTo(0, 0)
         }}
-        className="text-text-primary hover:text-text-muted flex"
+        className="text-text-primary hover:text-text-muted flex font-[Inter]"
       >
         Dhananjay&nbsp;<span className='sm:block hidden'> Agrawal</span>
       </Link>
@@ -32,7 +32,7 @@ const Navbar = () => {
       </div>
 
       {/* Nav Links */}
-      <ul className='flex text-text-primary gap-10 list-none items-center h-10 overflow-hidden'>
+      <ul className='flex text-text-primary gap-10 list-none items-center h-10 overflow-hidden uppercase font-mono font-bold'>
         {NavLinks.map((LinkItem, index) => {
           const isContact = LinkItem.title.toLowerCase() === "contact"
 

@@ -1,15 +1,13 @@
-import {card1, card2, card3, card4} from "../assets"
+
 import {
-    html,
-    css,
+    
     javascript,
-    typescript,
+    
     reactjs,
-    redux,
+    
     tailwind,
     nodejs,
-    mongodb,
-    threejs,
+   
     git,
     figma,
     docker,
@@ -41,25 +39,25 @@ export const workExperience = [
         position: "Frontend Web Developer",
         company: "Freelance",
         duration: "Jan 2022",
-        img:card1,
+        
     },
     {
         position: "Intern",
         company: "Tech Solutions",
         duration: "Jun 2021 - Dec 2021",
-        img:card2,
+        
     },
     {
         position: "Web Development Intern",
         company: "Creative Minds",
         duration: "Jan 2021 - May 2021",
-        img:card3,
+        
     },
     {
         position: "Intern",
         company: "Innovatech",
         duration: "Jun 2020 - Dec 2020",
-        img:card4,
+        
     }
 ]
 

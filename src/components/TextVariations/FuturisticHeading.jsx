@@ -54,7 +54,7 @@ const FuturisticHeading = () => {
           text-5xl lg:text-7xl
           font-semibold
           tracking-tight
-          text-text-primary
+          text-text-primary font-[Inter]
         "
       >
         Frontend{" "}

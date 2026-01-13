@@ -85,7 +85,7 @@ const BallCanvas = ({ icon }) => {
         frameloop="always" // needed for smooth spin & float
         dpr={[1, 2]}
         gl={{ preserveDrawingBuffer: true }}
-        camera={{ position: [0, 0, 6], fov: 50 }} // slightly further out
+        camera={{ position: [0, 0, 6], fov: 60 }} // slightly further out
         style={{ width: "100%", height: "100%" }}
       >
         <Suspense fallback={<CanvasLoader />}>

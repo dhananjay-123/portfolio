@@ -38,7 +38,7 @@ function Contact() {
       >
         <motion.h1
           variants={item}
-          className="text-5xl lg:text-6xl font-semibold text-text-muted"
+          className="text-5xl lg:text-6xl font-bold font-[Inter] text-text-muted "
         >
           Let’s{" "}
           <span className="futuristic-gradient">
@@ -48,7 +48,7 @@ function Contact() {
 
         <motion.p
           variants={item}
-          className="text-text-muted text-xl lg:text-2xl mt-4 max-w-xl"
+          className="text-text-muted text-xl lg:text-2xl mt-4 max-w-xl font-mono"
         >
           Build something meaningful, fast, and future-ready.
         </motion.p>
@@ -73,30 +73,30 @@ function Contact() {
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
 
           <motion.div variants={item} className="flex flex-col gap-2">
-            <label className="text-text-muted text-sm">Name</label>
+            <label className="text-text-muted text-sm font-bold">Name</label>
             <input
               required
               type="text"
-              className="glass-input"
+              className="glass-input text-text-primary font-mono"
               placeholder="John Doe"
             />
           </motion.div>
 
           <motion.div variants={item} className="flex flex-col gap-2">
-            <label className="text-text-muted text-sm">Email</label>
+            <label className="text-text-muted text-sm font-bold">Email</label>
             <input
               required
               type="email"
-              className="glass-input"
+              className="glass-input text-text-primary font-mono"
               placeholder="john@email.com"
             />
           </motion.div>
 
-          <motion.div variants={item} className="flex flex-col gap-2">
-            <label className="text-text-muted text-sm">Message</label>
+          <motion.div variants={item} className="flex flex-col gap-2 ">
+            <label className="text-text-muted text-sm font-bold">Message</label>
             <textarea
               rows="5"
-              className="glass-input resize-none"
+              className="glass-input resize-none text-text-primary font-mono"
               placeholder="Tell me about your idea..."
             />
           </motion.div>
@@ -112,8 +112,8 @@ function Contact() {
             className="
               mt-6 py-3 rounded-xl
               bg-white text-bg-primary
-              font-semibold text-lg
-              transition
+              font-bold text-lg
+              transition font-mono cursor-pointer
             "
           >
             Send Message
@@ -144,7 +144,7 @@ function Contact() {
               border border-white/10
               rounded-xl
               text-center text-text-primary text-xl
-              cursor-pointer
+              cursor-pointer font-mono font-bold
             "
           >
             {label}

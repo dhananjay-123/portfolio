@@ -15,8 +15,8 @@ export default function HorizontalScroll({ onProgress }) {
   scrollYProgress.on("change", (v) => onProgress?.(v));
 
   return (
-    <div ref={containerRef} className="relative h-[500vh]">
-      <div className="sticky top-40 h-[50vh] flex items-center overflow-hidden">
+    <div ref={containerRef} className="relative h-[500vh] pt-10">
+      <div className="sticky top-55 h-[50vh] flex items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-8 px-16">
           {skills.map((skill) => (
             <TiltCard key={skill.index} skill={skill} />
@@ -69,27 +69,27 @@ function TiltCard({ skill }) {
       ref={ref}
       onMouseMove={handleMove}
       onMouseLeave={reset}
-      className="w-[50vw] shrink-0 transition-transform duration-300  ease-out will-change-transform"
+      className="w-[60vw] shrink-0 transition-transform duration-300  ease-out will-change-transform"
     >
-      <div className="w-[45vw] h-[45vh] rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl p-3 sm:p-8 flex flex-col justify-between">
+      <div className="w-[60vw] h-[48vh] rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl p-3 sm:p-8 flex flex-col justify-between">
         
         {/* Index */}
-        <span className="text-sm text-white/50 font-mono">
+        <span className="text-sm text-text-primary font-mono">
           0{skill.index}
         </span>
 
         {/* Heading */}
-        <h3 className="text-3xl font-bold text-white">
+        <h3 className="text-3xl font-bold text-text-primary">
           {skill.heading}
         </h3>
 
         {/* Title */}
-        <h4 className="text-lg text-indigo-300">
+        <h4 className="text-xl text-indigo-400 font-mono">
           {skill.title}
         </h4>
 
         {/* Description */}
-        <p className="text-white/70 leading-relaxed">
+        <p className="text-text-secondary text-xl leading-7 font-mono ">
           {skill.description}
         </p>
 

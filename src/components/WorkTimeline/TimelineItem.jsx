@@ -38,7 +38,7 @@ export default function TimelineItem({
   return (
     <div
       ref={ref}
-      className={`relative flex sm:flex-row ${
+      className={`relative flex sm:flex-row  ${
         isLeft ? "sm:flex-row-reverse" : ""
       }`}
     >
@@ -81,7 +81,7 @@ export default function TimelineItem({
             relative
             rounded-2xl
             p-6
-            bg-white/5
+            bg-bg-primary/5
             backdrop-blur-xl
             border border-white/10
             shadow-[0_20px_50px_rgba(0,0,0,0.45)]
@@ -92,11 +92,11 @@ export default function TimelineItem({
           {/* glass highlight */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
 
-          <p className="text-xs text-text-muted">{date}</p>
-          <h3 className="text-lg font-semibold mt-1 text-white">{title}</h3>
-          <p className="text-sm text-text-muted">{company}</p>
+          <p className="text-xs text-text-muted font-mono">{date}</p>
+          <h3 className="text-lg font-semibold mt-1 text-text-primary font-mono">{title}</h3>
+          <p className="text-sm text-text-muted font-mono">{company}</p>
 
-          <p className="mt-3 text-sm leading-relaxed text-white/90">
+          <p className="mt-3 text-sm leading-relaxed text-text-primary/90">
             {description}
           </p>
         </div>

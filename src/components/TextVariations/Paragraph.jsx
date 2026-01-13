@@ -15,7 +15,7 @@ export default function Paragraph({value}) {
 
     const words = value.split(" ");
   return (
-    <p className='text-text-primary  flex flex-wrap leading-[14px] py-20  lg:pt-10 justify-center items-center '
+    <p className='text-text-primary font-mono flex flex-wrap leading-[14px] py-20  lg:pt-10 justify-center items-center '
     ref={element}
     
     >

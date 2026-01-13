@@ -1,30 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const ThemeToggle = () => {
-  // Initialize from localStorage or default to dark
-  const [dark, setDark] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") === "dark" || true;
-    }
-    return true;
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === "undefined") return "dark";
+    return localStorage.getItem("theme") || "dark";
   });
 
   useEffect(() => {
-    if (dark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+    const root = document.documentElement;
+
+    if (theme === "dark") {
+      root.classList.add("dark");
+      root.classList.remove("light");
     } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+      root.classList.add("light");
+      root.classList.remove("dark");
     }
-  }, [dark]);
+
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
     <button
-      onClick={() => setDark(!dark)}
-      className="p-2 rounded-md bg-bg-tertiary text-text-primary dark:bg-bg-secondary dark:text-text-primary transition-colors duration-300"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="p-2 rounded-md bg-bg-tertiary text-text-primary transition-colors duration-300"
+      aria-label="Toggle theme"
     >
-      {dark ? "☀️" : "🌙"}
+      {theme === "dark" ? "☀️" : "🌙"}
     </button>
   );
 };

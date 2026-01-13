@@ -21,7 +21,7 @@ const Hero = () => {
 
         />
         <AnimatedText
-          className="text-text-primary px-8 text-lg sm:text-2xl "
+          className="text-text-primary px-8 text-lg sm:text-2xl font-mono"
           text={`Hi, I'm Dhananjay, designing products developing and always learning something new`}
         />
         
@@ -39,7 +39,7 @@ const Hero = () => {
 </div>
       </div>
 
-      <div className='text-accent-success pt-17 flex flex-col-reverse lg:flex-row-reverse gap-y-3 lg:items-center justify-center'>
+      <div className='text-accent-success font-mono pt-17 flex flex-col-reverse lg:flex-row-reverse gap-y-3 lg:items-center justify-center'>
         <div className='flex'>
 
 

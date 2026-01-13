@@ -26,7 +26,7 @@ function Work() {
         style={{ scale: titleScale, opacity: titleOpacity }}
         className="text-text-primary text-5xl lg:text-7xl sticky top-10 h-[200px] flex items-center"
       >
-        <h1 className="w-full">
+        <h1 className="w-full text-text-primary font-[Inter] font-bold">
           My Past <br />
           <span className="ml-20 lg:ml-52">Experiences</span>
         </h1>
@@ -61,24 +61,24 @@ function Work() {
             >
               <div className="p-6 sm:p-10 rounded-2xl bg-white/10 border border-white/20 shadow-2xl flex flex-col gap-4 backdrop-blur-md m-0">
                 {/* Index */}
-                <span className="text-sm text-white/50 font-mono">
+                <span className="text-sm text-text-primary font-mono">
                   0{item.index}
                 </span>
 
                 {/* Heading */}
-                <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">
                   {item.heading}
                 </h2>
 
                 {/* Title */}
-                <h3 className="text-lg text-indigo-300">
+                <h3 className="text-lg text-indigo-500 font-mono">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-white/70">{item.small}</p>
-                <p className="text-white/80">{item.utility}</p>
-                <p className="text-white/80">{item.description}</p>
+                <p className="text-text-secondary font-mono">{item.small}</p>
+                <p className="text-text-secondary  font-mono">{item.utility}</p>
+                <p className="text-text-secondary  font-mono">{item.description}</p>
 
                 <div className="h-1 w-20 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full" />
               </div>
@@ -88,17 +88,18 @@ function Work() {
         
       </div>
        <div className="sticky top-[200px] mb-40">
-          <div className="p-6 sm:p-10 rounded-2xl bg-white/5 border border-white/10 shadow-2xl flex flex-col gap-4 m-0">
-            <span className="text-sm text-white font-mono">00</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+          <div className="p-6 sm:p-10 rounded-2xl bg-white/10 border border-white/20 shadow-2xl flex flex-col gap-4 backdrop-blur-md m-0">
+
+            <span className="text-sm text-text-primary font-mono">00</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">
               More Coming
             </h2>
-            <h3 className="text-lg text-indigo-300">Stay Tuned</h3>
-            <p className="text-white/70">
+            <h3 className="text-lg text-indigo-300 font-mono">Stay Tuned</h3>
+            <p className="text-text-secondary font-mono">
               This space is reserved for future experiences.
             </p>
-            <p className="text-white/80">Keep scrolling to see more updates!</p>
-            <p className="text-white/80">Exciting things are on the way.</p>
+            <p className="text-text-secondary font-mono">Keep scrolling to see more updates!</p>
+            <p className="text-text-secondary font-mono">Exciting things are on the way.</p>
             <div className="h-1 w-20 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full" />
           </div>
         </div>
