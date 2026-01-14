@@ -21,7 +21,7 @@ const House = () => {
   return <primitive object={scene} scale={0.7} />;
 };
 
-useGLTF.preload("/cerbero_house/scene.glb");
+useGLTF.preload("/cerbero_house/scene.gltf");
 
 /* =========================
    Controls (frameloop-safe)
