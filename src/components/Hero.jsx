@@ -1,68 +1,111 @@
+import { logo, herobanner } from "../assets";
+import { Description } from "../constants";
+import AnimatedText from "./TextVariations/AnimatedText";
+import Paragraph from "./TextVariations/Paragraph";
+import HouseCanvas from "./Canvas/hero3d";
+import FuturisticHeading from "./TextVariations/FuturisticHeading";
 
-import { logo ,herobanner} from '../assets'
-import { Description } from '../constants'
-import AnimatedText from './TextVariations/AnimatedText'
-import Paragraph from './TextVariations/Paragraph'
-import HouseCanvas from './Canvas/hero3d'
-
-import FuturisticHeading from './TextVariations/FuturisticHeading'
+import { FiBriefcase, FiMapPin, FiClock } from "react-icons/fi";
 
 const Hero = () => {
   return (
-    <div className='w-full py-1 bg-bg-primary justify-center p-7 sm:px-24 lg:px-40 '>
-      <div className='flex flex-col pt-25 pb-5'>
-        <div className='w-full flex flex-row py-2 justify-center' >
-        <img src={logo} alt="" className='w-20 h-20 bg-white pr-0'
-          initial={{ width: 0 }}
-          animate={{ width: "68px" }}
-          transition={{
-            duration: 2, ease: "easeInOut"
-          }}
+    <div className="w-full py-1 bg-bg-primary justify-center p-7 sm:px-24 lg:px-40">
+      {/* Top section */}
+      <div className="flex flex-col pt-25 pb-5">
+        <div className="w-full flex flex-row py-2 justify-center">
+          <img
+            src={logo}
+            alt="Logo"
+            className="
+              w-20 h-20
+              pr-0
+              mix-blend-screen
+              filter invert brightness-200
+            "
+          />
 
-        />
-        <AnimatedText
-          className="pl-20 text-text-primary text-lg sm:text-2xl font-mono"
-          text={`Hi, I'm Dhananjay, designing products developing and always learning something new`}
-        />
-        
+          <AnimatedText
+            className="pl-20 text-text-primary text-lg sm:text-2xl font-mono"
+            text={`Hi, I'm Dhananjay, designing products developing and always learning something new`}
+          />
+        </div>
 
-      </div>
-      <div className="h-[30vh] items-center justify-center flex ">
-          <img src={herobanner} 
-          className='h-[30vh] pt-10 w-full'
-          alt="" />
+        {/* Hero banner */}
+        <div className="relative w-full overflow-hidden">
+          <img
+            src={herobanner}
+            alt="Hero banner"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+            sizes="(max-width: 640px) 100vw,
+                   (max-width: 1024px) 80vw,
+                   1200px"
+            className="
+              w-full
+              max-h-[30vh]
+              object-fill
+              pt-10
+            "
+          />
         </div>
       </div>
 
-      <div className='pl-5 pr-5 pt-10'>
-
+      {/* Heading */}
+      <div className="pl-5 pr-5 pt-10">
         <div className="pl-5 pr-5 pt-10">
-  <FuturisticHeading/>
-</div>
+          <FuturisticHeading />
+        </div>
       </div>
 
-      <div className='text-accent-success font-mono pt-17 flex flex-col-reverse lg:flex-row-reverse gap-y-3 lg:items-center justify-center'>
-        <div className='flex'>
+      {/* Status / Location / Timezone */}
+      <div
+        className="
+          text-accent-success
+          font-mono
+          pt-17
+          flex flex-col-reverse
+          lg:flex-row-reverse
+          gap-y-3
+          lg:items-center
+          justify-center
+        "
+      >
+        {/* Open to work */}
+        <div className="flex items-center gap-2">
+          <FiBriefcase className="text-accent-success text-sm" />
+          <span>OPEN TO WORK</span>
+        </div>
 
+        <div className="w-full lg:w-[25%] h-[1px] lg:m-4 bg-gray-500" />
 
-          <div className=''>OPEN TO WORK</div></div>
-        <div className='w-full lg:w-[25%] h-[1px] lg:m-4 bg-gray-500'></div>
-        <div className='text-text-muted'>Gwalior , india</div>
-        <div className='w-full lg:w-[25%] h-[1px] lg:m-4 bg-gray-500'></div>
-        <div className='text-text-muted'>IST (UTC+05:30)</div>
+        {/* Location */}
+        <div className="flex items-center gap-2 text-text-muted">
+          <FiMapPin className="text-text-muted text-sm" />
+          <span>Gwalior, India</span>
+        </div>
+
+        <div className="w-full lg:w-[25%] h-[1px] lg:m-4 bg-gray-500" />
+
+        {/* Timezone */}
+        <div className="flex items-center gap-2 text-text-muted">
+          <FiClock className="text-text-muted text-sm" />
+          <span>IST (UTC+05:30)</span>
+        </div>
       </div>
-      <div className='flex lg:pt-20 flex-col lg:flex-row lg:text-2xl items-center'>
-        <div className='lg:w-[40%]'> <Paragraph
-          value={Description} /></div>
-          <div className="w-full h-[70vh] py-5 lg:h-[100vh] lg:lg:w-[60%]">
+
+      {/* Description + 3D canvas */}
+      <div className="flex lg:pt-20 flex-col lg:flex-row lg:text-2xl items-center">
+        <div className="lg:w-[40%]">
+          <Paragraph value={Description} />
+        </div>
+
+        <div className="w-full h-[70vh] py-5 lg:h-[100vh] lg:w-[60%]">
           <HouseCanvas />
         </div>
-       
       </div>
-      
     </div>
+  );
+};
 
-  )
-}
-
-export default Hero
+export default Hero;

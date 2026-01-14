@@ -1,35 +1,47 @@
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useReducedMotion,
+} from "framer-motion";
 import { useRef } from "react";
 
 const container = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 32 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
-      ease: "easeOut",
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1], // professional easing
     },
   },
 };
 
 const FuturisticHeading = () => {
   const ref = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
 
-  // very subtle magnetic motion
+  // magnetic motion values
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const smoothX = useSpring(x, { stiffness: 100, damping: 30 });
-  const smoothY = useSpring(y, { stiffness: 100, damping: 30 });
+  const smoothX = useSpring(x, { stiffness: 80, damping: 28 });
+  const smoothY = useSpring(y, { stiffness: 80, damping: 28 });
 
   const handleMouseMove = (e) => {
+    // skip on touch devices or reduced motion
+    if (shouldReduceMotion || !ref.current) return;
+
     const rect = ref.current.getBoundingClientRect();
     const mx = e.clientX - rect.left - rect.width / 2;
     const my = e.clientY - rect.top - rect.height / 2;
 
-    x.set(mx * 0.025);
-    y.set(my * 0.025);
+    // clamp movement (prevents jitter)
+    const clamp = (v, max = 20) => Math.max(-max, Math.min(v, max));
+
+    x.set(clamp(mx * 0.02));
+    y.set(clamp(my * 0.02));
   };
 
   const reset = () => {
@@ -39,14 +51,16 @@ const FuturisticHeading = () => {
 
   return (
     <motion.div
+      ref={ref}
       variants={container}
       initial="hidden"
       animate="visible"
-      ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={reset}
-      style={{ x: smoothX, y: smoothY }}
-      className="relative inline-block"
+      style={
+        shouldReduceMotion ? undefined : { x: smoothX, y: smoothY }
+      }
+      className="relative inline-block will-change-transform"
     >
       <h1
         className="
@@ -54,7 +68,8 @@ const FuturisticHeading = () => {
           text-5xl lg:text-7xl
           font-semibold
           tracking-tight
-          text-text-primary font-[Inter]
+          text-text-primary
+          font-[Inter]
         "
       >
         Frontend{" "}
@@ -63,7 +78,10 @@ const FuturisticHeading = () => {
       </h1>
 
       {/* soft glass glow */}
-      <div className="absolute inset-0 -z-10 blur-2xl bg-white/5" />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 blur-2xl bg-white/5"
+      />
     </motion.div>
   );
 };
