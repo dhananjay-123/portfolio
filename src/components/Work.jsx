@@ -33,7 +33,7 @@ function Work() {
       </motion.div>
 
       {/* Cards */}
-      <div className="relative">
+      <div className="relative h-[70%]">
         {topicsData.map((item, index) => {
 
           if (index === topicsData.length - 1) return null
