@@ -32,21 +32,25 @@ const About = () => {
       </Timeline>
 
       {/* ================= SKILLS SECTION ================= */}
-      <div className="relative mt-24">
+      <div className="relative mt-24 pb-40">
 
         {/* Sticky Header (ENDS with this wrapper) */}
-        <div className="sticky top-35 z-20 flex items-center gap-3 px-4 bg-bg-primary/80 backdrop-blur-md">
+        <div className="sticky top-35 z-0 flex items-center gap-3 px-4 bg-bg-primary/80 backdrop-blur-md">
           <h1 className="text-text-primary text-3xl lg:text-5xl w-1/2 font-bold font-[Inter]">
             Skills and Tools
           </h1>
           <ProgressBarHorizontal
             progress={progress}
-            className="w-1/2 h-4"
+            className="w-1/2 h-1"
           />
         </div>
 
         {/* Horizontal Scroll */}
-        <HorizontalScroll onProgress={setProgress} />
+        <div className="sticky top-20">
+          <HorizontalScroll onProgress={setProgress} />
+        </div>
+
+        
 
       </div>
       {/* =============== END SKILLS SECTION =============== */}

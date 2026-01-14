@@ -36,7 +36,7 @@ function Work() {
       <div className="relative">
         {topicsData.map((item, index) => {
 
-          if(index===topicsData.length-1) return[1,1]
+          if (index === topicsData.length - 1) return null
           /* 3️⃣ Each card owns a slice of scroll */
           const start = index / topicsData.length;
           const end = (index + 1) / topicsData.length;
@@ -62,7 +62,7 @@ function Work() {
               <div className="p-6 sm:p-10 rounded-2xl bg-white/10 border border-white/20 shadow-2xl flex flex-col gap-4 backdrop-blur-md m-0">
                 {/* Index */}
                 <span className="text-sm text-text-primary font-mono">
-                  0{item.index}
+                  {item.index}
                 </span>
 
                 {/* Heading */}
@@ -85,26 +85,41 @@ function Work() {
             </motion.div>
           );
         })}
-        
-      </div>
-       <div className="sticky top-[200px] mb-40">
-          <div className="p-6 sm:p-10 rounded-2xl bg-white/10 border border-white/20 shadow-2xl flex flex-col gap-4 backdrop-blur-md m-0">
 
-            <span className="text-sm text-text-primary font-mono">00</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">
-              More Coming
-            </h2>
-            <h3 className="text-lg text-indigo-300 font-mono">Stay Tuned</h3>
-            <p className="text-text-secondary font-mono">
-              This space is reserved for future experiences.
-            </p>
-            <p className="text-text-secondary font-mono">Keep scrolling to see more updates!</p>
-            <p className="text-text-secondary font-mono">Exciting things are on the way.</p>
-            <div className="h-1 w-20 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full" />
-          </div>
+      </div>
+      <div className="sticky top-[200px] mb-40">
+        <div className="p-6 sm:p-10 rounded-2xl bg-white/10 border border-white/20 shadow-2xl flex flex-col gap-4 backdrop-blur-md m-0">
+
+          <span className="text-sm text-text-primary font-mono">00</span>
+
+          <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">
+            Early Foundations
+          </h2>
+
+          <h3 className="text-lg text-indigo-300 font-mono">
+            Where It All Began
+          </h3>
+
+          <p className="text-text-secondary font-mono">
+            This phase marks the starting point of my journey, before the experiences listed above.
+          </p>
+
+          <p className="text-text-secondary font-mono">
+            It represents continuous learning, experimentation, and growth over time.
+          </p>
+
+          <p className="text-text-secondary font-mono">
+            <span className="text-text-primary font-semibold">
+              Scroll ahead
+            </span>{" "}
+            to move through the timeline and uncover how these foundations evolved into real-world experience.
+          </p>
+
+          <div className="h-1 w-20 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full" />
         </div>
       </div>
-      
+    </div>
+
   );
 }
 

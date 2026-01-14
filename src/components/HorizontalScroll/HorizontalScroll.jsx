@@ -1,9 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { skills } from "../../constants/index"; // adjust path if needed
 
 export default function HorizontalScroll({ onProgress }) {
   const containerRef = useRef(null);
+  const [progress, setProgress] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -16,6 +17,7 @@ export default function HorizontalScroll({ onProgress }) {
 
   return (
     <div ref={containerRef} className="relative h-[500vh] pt-10">
+      
       <div className="sticky top-55 h-[50vh] flex items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-8 px-16">
           {skills.map((skill) => (
@@ -75,7 +77,7 @@ function TiltCard({ skill }) {
         
         {/* Index */}
         <span className="text-sm text-text-primary font-mono">
-          0{skill.index}
+          {skill.index}
         </span>
 
         {/* Heading */}
