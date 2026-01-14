@@ -37,7 +37,7 @@ const Hero = () => {
             alt="Hero banner"
             loading="eager"
             decoding="async"
-            fetchpriority="high"
+            fetchPriority="high"
             sizes="(max-width: 640px) 100vw,
                    (max-width: 1024px) 80vw,
                    1200px"
