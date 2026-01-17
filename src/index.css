@@ -117,8 +117,8 @@ html {
    Dark Mode
 ================================ */
 .dark {
-  --color-bg-primary: #0B0B0C;
-  --color-bg-secondary: #111113;
+  --color-bg-primary: #070A12;
+  --color-bg-secondary: #0A1022;
   --color-bg-tertiary: #1A1A1D;
 
   --color-text-primary: #FFFFFF;
