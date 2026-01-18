@@ -4,8 +4,8 @@ import TimelineItem from "../components/WorkTimeline/TimelineItem";
 import { workExperience } from "../constants";
 import HorizontalScroll from "../components/HorizontalScroll/HorizontalScroll";
 import ProgressBarHorizontal from "../components/ProgressBar/ProgressBarHorizontal";
-import BallCanvas from "./Canvas/Ball";
-import { technologies } from "../constants";
+// import BallCanvas from "./Canvas/Ball";
+// import { technologies } from "../constants";
 import Technology from "./Technologies/Technology";
 
 const About = () => {
