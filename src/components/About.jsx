@@ -6,6 +6,7 @@ import HorizontalScroll from "../components/HorizontalScroll/HorizontalScroll";
 import ProgressBarHorizontal from "../components/ProgressBar/ProgressBarHorizontal";
 import BallCanvas from "./Canvas/Ball";
 import { technologies } from "../constants";
+import Technology from "./Technologies/Technology";
 
 const About = () => {
   const [progress, setProgress] = useState(0);
@@ -54,9 +55,11 @@ const About = () => {
 
       </div>
       {/* =============== END SKILLS SECTION =============== */}
-
+        <div >
+          <Technology />
+        </div>
       {/* TECHNOLOGIES GRID */}
-      <div className="pt-24">
+      {/* <div className="pt-24">
         <div className="flex flex-wrap justify-center gap-10">
           {technologies.map((technology) => (
             <div className="w-28 h-28" key={technology.name}>
@@ -64,7 +67,7 @@ const About = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
     </section>
   );

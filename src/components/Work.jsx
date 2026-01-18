@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { topicsData } from "../constants";
 
-function Work() {
+const Work = () => {
   const targetRef = useRef(null);
 
   /* 1️⃣ Use scrollYProgress (0 → 1) */

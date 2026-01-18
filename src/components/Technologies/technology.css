@@ -1,0 +1,124 @@
+/* =============================
+   WRAPPER
+============================= */
+.tech-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+/* =============================
+   SLIDER
+============================= */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 45vh; /* smaller height for performance */
+  transform-style: preserve-3d;
+  animation: rotate 30s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover */
+/* .slider:hover {
+  animation-play-state: paused;
+} */
+
+/* =============================
+   ITEMS
+============================= */
+.item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* reduced Z-depth and scale */
+  transform:
+    rotateY(calc((var(--position) - 1) * (360deg / var(--quantity))))
+    translateZ(400px)
+    scale(0.9);
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* =============================
+   ICONS
+============================= */
+.item img {
+  width: 100%;
+  height: 12vh; /* smaller icons */
+  object-fit: contain;
+  backface-visibility: hidden;
+
+  /* minimal shadow for depth */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover highlight (optional, minimal) */
+.item:hover img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+}
+
+/* =============================
+   ANIMATION
+============================= */
+@keyframes rotate {
+  from {
+    transform: perspective(1200px) rotateX(-10deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1200px) rotateX(-10deg) rotateY(360deg);
+  }
+}
+
+@media (max-width: 1024px) {
+  .slider {
+    height: 45vh;
+    animation-duration: 50s;
+  }
+
+  .item {
+    transform:
+      rotateY(calc((var(--position) - 1) * (360deg / var(--quantity))))
+      translateZ(300px)
+      scale(0.9);
+  }
+
+  .item img {
+    height: 12vh;
+  }
+}
+
+/* =============================
+   MOBILE
+============================= */
+@media (max-width: 640px) {
+  .slider {
+    height: 20vh;
+    animation-duration: 40s;
+  }
+
+  .item {
+    transform:
+      rotateY(calc((var(--position) - 1) * (360deg / var(--quantity))))
+      translateZ(170px)
+      scale(0.85);
+  }
+
+  .item img {
+    height: 10vh;
+  }
+}
+
+
+
+
+
