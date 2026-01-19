@@ -73,31 +73,46 @@ function TiltCard({ skill }) {
       onMouseLeave={reset}
       className="w-[60vw] shrink-0 transition-transform duration-300  ease-out will-change-transform"
     >
-      <div className="w-[60vw] h-[48vh] rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl p-3 sm:p-8 flex flex-col justify-between">
-        
-        {/* Index */}
-        <span className="text-sm text-text-primary font-mono">
-          {skill.index}
-        </span>
+      <div className="w-[60vw] h-[48vh] rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl relative">
 
-        {/* Heading */}
-        <h3 className="text-3xl font-bold text-text-primary">
-          {skill.heading}
-        </h3>
+  {/* Background Image */}
+  <img
+    src={skill.image}
+    alt={skill.heading}
+    className="absolute inset-0 w-full h-full object-cover opacity-60 saturate-75"
+  />
 
-        {/* Title */}
-        <h4 className="text-xl text-indigo-400 font-mono">
-          {skill.title}
-        </h4>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-black/10" />
 
-        {/* Description */}
-        <p className="text-text-secondary text-xl leading-7 font-mono ">
-          {skill.description}
-        </p>
+  {/* Content */}
+  <div className="relative z-10 h-full p-3 sm:p-8 flex flex-col justify-between">
+    
+    {/* Index */}
+    <span className="text-sm text-text-primary font-mono">
+      {skill.index}
+    </span>
 
-        {/* Accent bar */}
-        <div className="h-1 w-20 bg-linear-to-r from-indigo-400 to-purple-500 rounded-full" />
-      </div>
+    {/* Heading */}
+    <h3 className="text-3xl font-bold text-text-primary">
+      {skill.heading}
+    </h3>
+
+    {/* Title */}
+    <h4 className="text-xl text-indigo-400 font-mono">
+      {skill.title}
+    </h4>
+
+    {/* Description */}
+    <p className="text-text-secondary text-xl leading-7 font-mono">
+      {skill.description}
+    </p>
+
+    {/* Accent bar */}
+    <div className="h-1 w-20 bg-linear-to-r from-indigo-400 to-purple-500 rounded-full" />
+  </div>
+</div>
+
     </div>
   );
 }

@@ -4,15 +4,16 @@ import TimelineItem from "../components/WorkTimeline/TimelineItem";
 import { workExperience } from "../constants";
 import HorizontalScroll from "../components/HorizontalScroll/HorizontalScroll";
 import ProgressBarHorizontal from "../components/ProgressBar/ProgressBarHorizontal";
+import DomeGallery from "./DomeGallery/DomeGallery";
 // import BallCanvas from "./Canvas/Ball";
 // import { technologies } from "../constants";
-import Technology from "./Technologies/Technology";
+// import Technology from "./Technologies/Technology";
 
 const About = () => {
   const [progress, setProgress] = useState(0);
 
   return (
-    <section className="w-full pt-20 bg-bg-primary sm:px-24 lg:px-40 px-7 pb-16">
+    <section className="w-full bg-bg-primary pt-20 flex justify-center flex-col sm:px-24 lg:px-40 px-7 pb-16">
       
       {/* EXPERIENCE */}
       <h2 className="text-text-muted text-3xl lg:text-5xl mb-16 font-bold font-[Inter]">
@@ -33,7 +34,7 @@ const About = () => {
       </Timeline>
 
       {/* ================= SKILLS SECTION ================= */}
-      <div className="relative mt-24 pb-40">
+      <div className="relative mt-24 pb-40 ">
 
         {/* Sticky Header (ENDS with this wrapper) */}
         <div className="sticky top-35 z-0 flex items-center gap-3 px-4 bg-bg-primary/80 backdrop-blur-md">
@@ -55,9 +56,18 @@ const About = () => {
 
       </div>
       {/* =============== END SKILLS SECTION =============== */}
-        <div >
-          <Technology />
-        </div>
+        <div 
+        className="w-full h-[70vh] rounded-full overflow-hidden "
+        >
+      <DomeGallery
+  fit={0.8}
+  minRadius={1000}
+  maxVerticalRotationDeg={10}
+  segments={34}
+  dragDampening={3.5}
+  grayscale={false}
+/>
+    </div>
       {/* TECHNOLOGIES GRID */}
       {/* <div className="pt-24">
         <div className="flex flex-wrap justify-center gap-10">

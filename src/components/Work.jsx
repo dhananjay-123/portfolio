@@ -59,29 +59,46 @@ const Work = () => {
               style={{ scale, opacity }}
               className="sticky top-[200px] mb-40"
             >
-              <div className="p-6 sm:p-10 rounded-2xl bg-white/10 border border-white/20 shadow-2xl flex flex-col gap-4 backdrop-blur-md m-0">
-                {/* Index */}
-                <span className="text-sm text-text-primary font-mono">
-                  {item.index}
-                </span>
+              <div className="relative p-6 sm:p-10 rounded-2xl overflow-hidden bg-white/10 border border-white/20 shadow-2xl backdrop-blur-md">
 
-                {/* Heading */}
-                <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">
-                  {item.heading}
-                </h2>
+  {/* Background Image */}
+  <img
+    src={item.image}
+    alt={item.heading}
+    className="absolute inset-0 w-full h-full object-cover opacity-60 saturate-75 scale-105"
+  />
 
-                {/* Title */}
-                <h3 className="text-lg text-indigo-500 font-mono">
-                  {item.title}
-                </h3>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-black/20" />
 
-                {/* Description */}
-                <p className="text-text-secondary font-mono">{item.small}</p>
-                <p className="text-text-secondary  font-mono">{item.utility}</p>
-                <p className="text-text-secondary  font-mono">{item.description}</p>
+  {/* Content */}
+  <div className="relative z-10 flex flex-col gap-4">
+    
+    {/* Index */}
+    <span className="text-sm text-text-primary font-mono">
+      {item.index}
+    </span>
 
-                <div className="h-1 w-20 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full" />
-              </div>
+    {/* Heading */}
+    <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">
+      {item.heading}
+    </h2>
+
+    {/* Title */}
+    <h3 className="text-lg text-indigo-400 font-mono">
+      {item.title}
+    </h3>
+
+    {/* Description */}
+    <p className="text-text-secondary font-mono">{item.small}</p>
+    <p className="text-text-secondary font-mono">{item.utility}</p>
+    <p className="text-text-secondary font-mono">{item.description}</p>
+
+    {/* Accent */}
+    <div className="h-1 w-20 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full" />
+  </div>
+</div>
+
             </motion.div>
           );
         })}

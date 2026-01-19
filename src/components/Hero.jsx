@@ -2,10 +2,12 @@ import { logo, herobanner } from "../assets";
 import { Description } from "../constants";
 import AnimatedText from "./TextVariations/AnimatedText";
 import Paragraph from "./TextVariations/Paragraph";
-import HouseCanvas from "./Canvas/hero3d";
+// import HouseCanvas from "./Canvas/hero3d";
 import FuturisticHeading from "./TextVariations/FuturisticHeading";
 
+
 import { FiBriefcase, FiMapPin, FiClock } from "react-icons/fi";
+import HeroCards from "./HeroCards/HeroCards";
 
 const Hero = () => {
   return (
@@ -100,12 +102,13 @@ const Hero = () => {
           <Paragraph value={Description} />
         </div>
 
-        <div className="w-full h-[70vh] py-5 lg:h-[100vh] lg:w-[60%]">
-          <HouseCanvas />
+        <div className="w-full h-[70vh] lg:h-[100vh] lg:w-[60%] flex justify-center items-center">
+          {/* <HouseCanvas /> */}
+          <HeroCards/>
         </div>
       </div>
+      
     </div>
   );
 };
-
 export default Hero;
