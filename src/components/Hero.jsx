@@ -15,16 +15,7 @@ const Hero = () => {
       {/* Top section */}
       <div className="flex flex-col pt-25 pb-5">
         <div className="w-full flex flex-row py-2 justify-center">
-          <img
-            src={logo}
-            alt="Logo"
-            className="
-              w-20 h-20
-              pr-0
-              mix-blend-screen
-              filter invert brightness-200
-            "
-          />
+          
 
           <AnimatedText
             className="pl-20 text-text-primary text-lg sm:text-2xl font-mono"
@@ -34,22 +25,7 @@ const Hero = () => {
 
         {/* Hero banner */}
         <div className="relative w-full overflow-hidden">
-          <img
-            src={herobanner}
-            alt="Hero banner"
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
-            sizes="(max-width: 640px) 100vw,
-                   (max-width: 1024px) 80vw,
-                   1200px"
-            className="
-              w-full
-              max-h-[30vh]
-              object-fill
-              pt-10
-            "
-          />
+          
         </div>
       </div>
 
@@ -105,7 +81,7 @@ const Hero = () => {
         <div className="w-full h-[70vh] lg:h-[100vh] lg:w-[60%] flex justify-center items-center">
           {/* <HouseCanvas /> */}
           <HeroCards/>
-        </div>
+        </div>z
       </div>
       
     </div>

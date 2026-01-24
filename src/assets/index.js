@@ -1,5 +1,15 @@
 import logo from "./logo.svg";
 
+import para1 from "./para1.png";
+import para2 from "./para2.png";
+import para3 from "./para3.png";
+import para4 from "./para4.png";
+import para5 from "./para5.png";  
+import para6 from "./para6.jpg";  
+
+import para8 from "./para8.jpg";  
+import para9 from "./para9.png";  
+import parabg from "./parabg.jpg";
 
 
 
@@ -39,6 +49,15 @@ export {
   reactjs,
 
   tailwind,
+  para1,
+  para2,
+  para3,
+  para4,
+  para5,
+  para6,
+  para8,
+  para9,
+  parabg,
 
   
 };

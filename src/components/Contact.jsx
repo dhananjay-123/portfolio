@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaLinkedinIn, FaGithub, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaInstagram, FaEnvelope ,FaDownload} from "react-icons/fa";
 
 const container = {
   hidden: { opacity: 0, y: 60 },
@@ -36,7 +36,7 @@ function Contact() {
   ];
 
   return (
-    <section className="bg-bg-primary px-7 sm:px-24 lg:px-40 py-28 overflow-hidden">
+    <section className="bg-bg-primary  pt-28 pb-10 overflow-hidden flex flex-col justify-center">
 
       {/* ================= HEADING ================= */}
       <motion.div
@@ -44,9 +44,10 @@ function Contact() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="mb-20"
+        className="mb-20 flex md:flex-row flex-col gap-10 "
       >
-        <motion.h1
+        <div className="flex flex-col gap-10 px-7 sm:px-24">
+          <motion.h1
           variants={item}
           className="text-5xl lg:text-6xl font-bold font-[Inter] text-text-muted"
         >
@@ -59,86 +60,30 @@ function Contact() {
         >
           Build something meaningful, fast, and future-ready.
         </motion.p>
+        </div>
+        <motion.div
+          variants={item}
+          className="text-text-muted text-xl lg:text-2xl mt-4 max-w-xl font-mono gap-10 flex flex-col justify-end text-center pr-1 overflow-hidden "
+        >
+          
+          <div>
+            <p className="font-mono text-green-400 text-xl lg:text-3xl">dhananjayagrawalmain001@gmail.com</p> 
+          </div>
+          <div className="flex justify-end">
+  <a
+    href="/Dhananjay_CV.pdf"
+    download
+    className="bg-amber-300 w-[40%] py-3 rounded-full flex items-center justify-center gap-2 font-semibold hover:bg-amber-400 transition"
+  >
+    <FaDownload className="text-lg" />
+    Download CV
+  </a>
+</div>
+          
+        </motion.div>
       </motion.div>
 
-      {/* ================= FORM ================= */}
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className=" 
-          max-w-3xl mx-auto
-          backdrop-blur-xl
-          bg-white/5
-          border border-white/10
-          rounded-3xl
-          p-10 sm:p-14
-          shadow-[0_0_60px_rgba(255,255,255,0.06)]
-        "
-      >
-        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-
-          {/* Name */}
-          <motion.div variants={item} className="flex flex-col gap-2">
-            <label className="text-text-muted text-sm font-bold">Name</label>
-            <input
-              required
-              type="text"
-              className="glass-input text-text-primary font-mono transition-all duration-200"
-              placeholder="John Doe"
-              onFocus={(e) => (e.target.style.boxShadow = "0 0 15px #22d3ee")}
-              onBlur={(e) => (e.target.style.boxShadow = "none")}
-            />
-          </motion.div>
-
-          {/* Email */}
-          <motion.div variants={item} className="flex flex-col gap-2">
-            <label className="text-text-muted text-sm font-bold">Email</label>
-            <input
-              required
-              type="email"
-              className="glass-input text-text-primary font-mono transition-all duration-200"
-              placeholder="john@email.com"
-              onFocus={(e) => (e.target.style.boxShadow = "0 0 15px #22d3ee")}
-              onBlur={(e) => (e.target.style.boxShadow = "none")}
-            />
-          </motion.div>
-
-          {/* Message */}
-          <motion.div variants={item} className="flex flex-col gap-2">
-            <label className="text-text-muted text-sm font-bold">Message</label>
-            <textarea
-              rows="5"
-              className="glass-input resize-none text-text-primary font-mono transition-all duration-200"
-              placeholder="Tell me about your idea..."
-              onFocus={(e) => (e.target.style.boxShadow = "0 0 15px #22d3ee")}
-              onBlur={(e) => (e.target.style.boxShadow = "none")}
-            />
-          </motion.div>
-
-          {/* Submit Button */}
-          <motion.button
-            variants={item}
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 0 25px #22d3ee",
-            }}
-            whileTap={{ scale: 0.96 }}
-            transition={{ type: "spring", stiffness: 260, damping: 18 }}
-            type="submit"
-            className="
-              mt-6 py-3 rounded-xl
-              bg-white text-bg-primary
-              font-bold text-lg
-              transition font-mono cursor-pointer
-            "
-          >
-            Send Message
-          </motion.button>
-
-        </form>
-      </motion.div>
+     
 
       {/* ================= FOOTER ================= */}
       <motion.footer
@@ -221,7 +166,7 @@ function Contact() {
         </motion.div>
 
         {/* ---------- FOOTER TEXT ---------- */}
-        <motion.div variants={item} className="relative z-10 text-center text-text-muted font-mono text-sm">
+        <motion.div variants={item} className="relative z-10 text-center pb-5 text-text-muted font-mono text-sm">
           © {new Date().getFullYear()} Dhananjay — Crafted with passion & precision.
         </motion.div>
 

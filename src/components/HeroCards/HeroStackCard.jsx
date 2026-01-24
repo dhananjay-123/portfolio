@@ -18,9 +18,7 @@ const HeroStackCard = ({ index, title, subtitle, description, image }) => {
       <div className="relative z-10 h-full flex flex-col justify-end p-6 gap-3 text-text-primary">
         
         {/* Index */}
-        <span className="text-sm font-mono opacity-80">
-          {index}
-        </span>
+        
 
         {/* Title */}
         <h2 className="text-2xl font-bold leading-tight">

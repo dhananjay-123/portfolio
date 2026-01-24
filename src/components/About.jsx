@@ -1,38 +1,22 @@
 import { useState } from "react";
-import Timeline from "../components/WorkTimeline/Timeline";
-import TimelineItem from "../components/WorkTimeline/TimelineItem";
-import { workExperience } from "../constants";
+
+import { technologies } from "../constants";
 import HorizontalScroll from "../components/HorizontalScroll/HorizontalScroll";
-import ProgressBarHorizontal from "../components/ProgressBar/ProgressBarHorizontal";
-import DomeGallery from "./DomeGallery/DomeGallery";
-// import BallCanvas from "./Canvas/Ball";
-// import { technologies } from "../constants";
-// import Technology from "./Technologies/Technology";
+
+
+
+import InfiniteMenu from "./InfiniteMenu/InfiniteMenu";
+
 
 const About = () => {
   const [progress, setProgress] = useState(0);
 
   return (
+    <div className="flex flex-col">
     <section className="w-full bg-bg-primary pt-20 flex justify-center flex-col sm:px-24 lg:px-40 px-7 pb-16">
       
       {/* EXPERIENCE */}
-      <h2 className="text-text-muted text-3xl lg:text-5xl mb-16 font-bold font-[Inter]">
-        I have <span className="text-text-primary">1+ years</span> of experience
-      </h2>
-
-      <Timeline>
-        {workExperience.map((exp, i) => (
-          <TimelineItem
-            key={i}
-            index={i}
-            title={exp.position}
-            company={exp.company}
-            date={exp.duration}
-            description={exp.description}
-          />
-        ))}
-      </Timeline>
-
+     
       {/* ================= SKILLS SECTION ================= */}
       <div className="relative mt-24 pb-40 ">
 
@@ -41,10 +25,7 @@ const About = () => {
           <h1 className="text-text-primary text-3xl lg:text-5xl w-1/2 font-bold font-[Inter]">
             Skills and Tools
           </h1>
-          <ProgressBarHorizontal
-            progress={progress}
-            className="w-1/2 h-1"
-          />
+         
         </div>
 
         {/* Horizontal Scroll */}
@@ -56,30 +37,18 @@ const About = () => {
 
       </div>
       {/* =============== END SKILLS SECTION =============== */}
-        <div 
-        className="w-full h-[70vh] rounded-full overflow-hidden "
-        >
-      <DomeGallery
-  fit={0.8}
-  minRadius={1000}
-  maxVerticalRotationDeg={10}
-  segments={34}
-  dragDampening={3.5}
-  grayscale={false}
-/>
-    </div>
-      {/* TECHNOLOGIES GRID */}
-      {/* <div className="pt-24">
-        <div className="flex flex-wrap justify-center gap-10">
-          {technologies.map((technology) => (
-            <div className="w-28 h-28" key={technology.name}>
-              <BallCanvas icon={technology.icon} />
-            </div>
-          ))}
-        </div>
-      </div> */}
+        
+      
 
     </section>
+    <div 
+        className="w-full h-screen bg-bg-primary flex justify-center flex-col"
+        >
+      <InfiniteMenu items={technologies}
+    scale={1} />
+    </div>
+
+    </div>
   );
 };
 

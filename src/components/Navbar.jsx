@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { NavLinks } from '../constants'
 import ProgressBar from './ProgressBar/ProgressBar'
 import ThemeToggle from './ThemeToggle'
+
+import Parallax from './Parallax/Parallax'
 //hello
 
 const Navbar = () => {
@@ -13,7 +15,9 @@ const Navbar = () => {
   const [active, setActive] = useState(" ")
 
   return (
-    <nav className="flex pt-5 px-4 sm:px-10 lg:px-40 fixed bg-bg-primary w-full z-60 justify-between mx-auto items-center ">
+
+    <div className='h-full w-full overflow-hidden flex justify-center' >
+    <nav className="flex pt-5 pb-5 px-4 sm:px-10 lg:px-40 fixed bg-bg-primary w-full z-60 justify-between mx-auto items-center ">
 
       {/* Logo */}
       <Link
@@ -123,6 +127,9 @@ const Navbar = () => {
       </div>
 
     </nav>
+
+        <Parallax />
+    </div>
   )
 }
 

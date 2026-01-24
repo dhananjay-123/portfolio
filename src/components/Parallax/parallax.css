@@ -1,0 +1,85 @@
+html, body {
+  
+  
+  font-family: 'Inter', sans-serif;
+  background: #000;
+}
+
+.parallax-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  perspective: 2300px;
+  ;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.parallax {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.bg {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.layer {
+  width: 15vw;
+  height: auto;
+  object-fit: contain;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.text-layer {
+  z-index: 15;
+  color: white;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 700;
+  white-space: nowrap;
+  text-align: center;
+  pointer-events: none;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  top: 30%; left: 30%; 
+}
+
+.l1 { top: 60%; left: 40%;width:1000px ;height:1000px }
+.l2 { top: 50%; left: 50%; width:1000px ; height:1000px }
+.l3 { top: 30%; left: 80%; }
+.l4 { top: 60%; left: 15%; }
+.l5 { top: 80%; left: 20%; }
+.l6 { top: 70%; left: 85%; }
+.l7 { top: 90%; left: 70%; }
+
+@media (max-width: 768px) {
+  .layer { width: 40vw; }
+
+  .l1 { top: 75%; left: 45%; }
+.l2 { top: 20%; left: 50%; }
+.l3 { top: 30%; left: 80%; }
+.l4 { top: 60%; left: 15%; }
+.l5 { top: 80%; left: 20%; }
+.l6 { top: 70%; left: 85%; }
+.l7 { top: 90%; left: 70%; }
+}

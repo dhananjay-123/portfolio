@@ -158,17 +158,46 @@ export const topicsData = [
     image:
       "https://images.unsplash.com/photo-1629904853716-f0bc54eea481?q=80&w=1600&auto=format", // dark code abstraction
   },
-  {
+ 
+    {
     index: "05",
-    heading: "Early Foundations",
-    title: "Where It All Began",
-    small: "Learning & exploration",
-    utility: "Building fundamentals before real-world experience.",
+    heading: "Framer Motion",
+    title: "Smooth Animations",
+    small: "Motion made simple",
+    utility:
+      "Create fluid animations and micro-interactions for modern user experiences.",
     description:
-      "This phase represents continuous learning, experimentation, and growth over time.",
+      "Framer Motion provides an easy and powerful API for animations in React, helping interfaces feel alive and responsive.",
     image:
-      "https://images.unsplash.com/photo-1604079628040-94301bb21b91?q=80&w=1600&auto=format", // abstract journey / growth
+      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1600&auto=format", // motion / abstract flow
   },
+  {
+    index: "06",
+    heading: "GSAP",
+    title: "High-Performance Animations",
+    small: "Animation powerhouse",
+    utility:
+      "Build complex timelines and scroll-based animations with precision.",
+    description:
+      "GSAP is a robust animation library trusted for its performance, control, and smooth rendering across browsers.",
+    image:
+      "https://images.unsplash.com/photo-1614850715649-1d0106293bd1?q=80&w=1600&auto=format", // timelines / motion abstraction
+  },
+  {
+    index: "07",
+    heading: "UI/UX Design",
+    title: "Design Thinking",
+    small: "User-centered design",
+    utility:
+      "Craft intuitive interfaces that balance aesthetics and usability.",
+    description:
+      "UI/UX focuses on understanding user needs and designing experiences that feel natural, accessible, and engaging.",
+    image:
+      "https://images.unsplash.com/photo-1587440871875-191322ee64b0?q=80&w=1600&auto=format", // design workspace
+  },
+  
+ 
+
 ];
 
 
@@ -250,38 +279,49 @@ export const skills = [
 
 
 export const technologies = [
-
   {
-    alt: "JavaScript",
-    src: javascript,
+    image: javascript,
+    link: 'https://google.com/',
+    title: 'JavaScript',
+    description: 'This is pretty cool, right?'
   },
   {
-    alt: "React JS",
-    src: reactjs,
-  },
-  
-  {
-    alt: "Tailwind CSS",
-    src: tailwind,
+    image: reactjs,
+    link: 'https://google.com/',
+    title: 'React JS',
+    description: 'This is pretty cool, right?'
   },
   {
-    alt: "Node JS",
-    src: nodejs,
-  },
-  
-  
-  {
-    alt: "git",
-    src: git,
+    image: tailwind,
+    link: 'https://google.com/',
+    title: 'Tailwind CSS',
+    description: 'This is pretty cool, right?'
   },
   {
-    alt: "figma",
-    src: figma,
+    image: nodejs,
+    link: 'https://google.com/',
+    title: 'Node JS',
+    description: 'This is pretty cool, right?'
   },
   {
-    alt: "docker",
-    src: docker,
+    image: git,
+    link: 'https://google.com/',
+    title: 'Git',
+    description: 'This is pretty cool, right?'
+  },
+  {
+    image: figma,
+    link: 'https://google.com/',
+    title: 'Figma',
+    description: 'This is pretty cool, right?'
+  },
+  {
+    image: docker,
+    link: 'https://google.com/',
+    title: 'Docker',
+    description: 'This is pretty cool, right?'
   },
 ];
+
 
     
