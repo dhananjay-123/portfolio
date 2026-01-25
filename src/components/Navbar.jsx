@@ -128,7 +128,7 @@ const Navbar = () => {
 
     </nav>
 
-        <Parallax />
+        {/* <Parallax /> */}
     </div>
   )
 }

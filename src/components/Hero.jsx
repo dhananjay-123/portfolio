@@ -8,10 +8,22 @@ import FuturisticHeading from "./TextVariations/FuturisticHeading";
 
 import { FiBriefcase, FiMapPin, FiClock } from "react-icons/fi";
 import HeroCards from "./HeroCards/HeroCards";
+import HeroScroll from "./HeroScroll/HeroScroll";
 
 const Hero = () => {
   return (
-    <div className="w-full py-1 bg-bg-primary justify-center p-7 sm:px-24 lg:px-40">
+   <div>
+
+    <div className="w-full h-full bg-amber-50">
+      <HeroScroll/>
+    </div>
+
+     <div className="w-full py-1 bg-bg-primary justify-center p-7 sm:px-24 lg:px-40">
+
+
+      
+
+
       {/* Top section */}
       <div className="flex flex-col pt-25 pb-5">
         <div className="w-full flex flex-row py-2 justify-center">
@@ -85,6 +97,7 @@ const Hero = () => {
       </div>
       
     </div>
+   </div>
   );
 };
 export default Hero;

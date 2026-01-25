@@ -142,6 +142,15 @@ html {
 *::-webkit-scrollbar {
   display: none;
 }
+
+.night-bg,
+.window-layer,
+.headline,
+.side-copy {
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
 /* ================================
    Tailwind variable mapping (no config needed)
 ================================ */
