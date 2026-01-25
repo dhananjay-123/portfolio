@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { useScroll,motion } from "framer-motion";
+import { useScroll, motion, useTransform } from "framer-motion";
 
 const TOTAL_FRAMES = 192;
 const pad = (n) => String(n).padStart(5, "0");
+
 const container = {
   hidden: { opacity: 0, y: 60 },
   visible: {
@@ -32,16 +33,15 @@ function Loader({ progress }) {
 
 /* ------------------ Story Overlay ------------------ */
 function StoryOverlay({ progress }) {
- const blocks = [
-  { at: 0.0, align: "left", title: "Frontend Web Developer", sub: "Freelance | Jan 2024" },
-  { at: 0.25, align: "right", title: "Intern", sub: "Tech Solutions | Jun 2024 - Dec 2024" },
-  { at: 0.5, align: "left", title: "Web Development Intern", sub: "Creative Minds | Jan 2025 - May 2025" },
-  { at: 0.75, align: "right", title: "Intern", sub: "Innovatech | Jun 2025 - Dec 2025" },
-];
-
+  const blocks = [
+    { at: 0.0, align: "left", title: "Frontend Web Developer", sub: "Freelance | Jan 2024" },
+    { at: 0.25, align: "right", title: "Intern", sub: "Tech Solutions | Jun 2024 - Dec 2024" },
+    { at: 0.5, align: "left", title: "Web Development Intern", sub: "Creative Minds | Jan 2025 - May 2025" },
+    { at: 0.75, align: "right", title: "Intern", sub: "Innovatech | Jun 2025 - Dec 2025" },
+  ];
 
   return (
-    <div className="pointer-events-none absolute inset-0 ">
+    <div className="pointer-events-none absolute inset-0">
       {blocks.map((b, i) => {
         const visible = Math.abs(progress - b.at) < 0.08;
         return (
@@ -49,12 +49,11 @@ function StoryOverlay({ progress }) {
             key={i}
             className={`absolute transition-all duration-500 ease-out 
               ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}
-              ${
-                b.align === "left"
-                  ? "bottom-0 left-30 text-left"
-                  : b.align === "right"
-                  ? "bottom-0 right-30 text-right"
-                  : "bottom-0 left-1/2 -translate-x-1/2 text-center"
+              ${b.align === "left"
+                ? "bottom-0 left-30 text-left"
+                : b.align === "right"
+                ? "bottom-0 right-30 text-right"
+                : "bottom-0 left-1/2 -translate-x-1/2 text-center"
               }`}
           >
             <h2 className="text-4xl font-mono font-medium tracking-tight text-accent-success">
@@ -86,14 +85,13 @@ export default function MouseScroll() {
     offset: ["start start", "end end"],
   });
 
-  /* -------- Image Preload -------- */
+  // ---------------- Preload Images ----------------
   useEffect(() => {
     let count = 0;
     const imgs = [];
-
     for (let i = 1; i <= TOTAL_FRAMES; i++) {
       const img = new Image();
-      img.src = `/frames/${pad(i)}.jpg`; // or .png
+      img.src = `/frames/${pad(i)}.jpg`; // path to frames
       img.onload = () => {
         count++;
         setLoadedCount(count);
@@ -106,10 +104,9 @@ export default function MouseScroll() {
     }
   }, []);
 
-  /* -------- Canvas Resize & DPR -------- */
+  // ---------------- Canvas Resize ----------------
   useEffect(() => {
     if (!loaded) return;
-
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
@@ -117,24 +114,20 @@ export default function MouseScroll() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const w = window.innerWidth;
       const h = window.innerHeight;
-
       canvas.style.width = w + "px";
       canvas.style.height = h + "px";
       canvas.width = w * dpr;
       canvas.height = h * dpr;
-
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
-
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
   }, [loaded]);
 
-  /* -------- Scroll → Frame Mapping -------- */
+  // ---------------- Scroll → Frame Mapping ----------------
   useEffect(() => {
     if (!loaded) return;
-
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
@@ -150,10 +143,9 @@ export default function MouseScroll() {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Use viewport size to avoid cropping
+      // scale to viewport
       const cw = window.innerWidth;
       const ch = window.innerHeight;
-
       const imgRatio = img.width / img.height;
       const canvasRatio = cw / ch;
 
@@ -166,7 +158,7 @@ export default function MouseScroll() {
         drawW = ch * imgRatio;
       }
 
-      const scale = 0.95; // leave margin for overlays
+      const scale = 0.95;
       drawW *= scale;
       drawH *= scale;
 
@@ -177,27 +169,36 @@ export default function MouseScroll() {
     });
   }, [loaded, scrollYProgress]);
 
+  // ---------------- Transform scroll → exit animation ----------------
+  // We'll fade out and move up the sticky wrapper as scroll approaches the end
+  const opacity = useTransform(scrollYProgress, [0.7, 1], [1, 0]); // fade out at end
+  const translateY = useTransform(scrollYProgress, [0.7, 1], [0, -100]); // move up at end
+
   return (
     <section ref={containerRef} className="relative h-[400vh] bg-bg-primary">
       {!loaded && (
         <Loader progress={Math.round((loadedCount / TOTAL_FRAMES) * 100)} />
       )}
 
-      {/* Sticky wrapper for video-like placement */}
-      <div className="sticky top-10 h-[80vh] w-full flex items-center justify-center flex-col">
-        <motion.h2 
-        variants={container}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        
-        className="text-text-muted text-3xl lg:text-5xl font-bold font-[Inter] pb-10">
-              I have <span className="text-text-primary">1+ years</span> of experience
-            </motion.h2>
+      {/* Sticky wrapper for video + title + overlay */}
+      {/* Motion.div applies fade-out + move-up transition tied to scroll */}
+      <motion.div
+        style={{ opacity, y: translateY }}
+        className="sticky top-10 h-[80vh] w-full flex items-center justify-center flex-col"
+      >
+        <motion.h2
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-text-muted text-3xl lg:text-5xl font-bold font-[Inter] pb-10"
+        >
+          I have <span className="text-text-primary">1+ years</span> of experience
+        </motion.h2>
 
         <canvas ref={canvasRef} className="max-h-[50vh] max-w-[70vw] pb-5" />
         <StoryOverlay progress={progress} />
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -133,7 +133,15 @@ html {
 
   --color-ui-muted: #3F3F46;
 }
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
 
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  display: none;
+}
 /* ================================
    Tailwind variable mapping (no config needed)
 ================================ */
