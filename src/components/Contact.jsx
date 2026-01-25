@@ -36,7 +36,7 @@ function Contact() {
   ];
 
   return (
-    <section className="bg-bg-primary  pt-28 pb-10 overflow-hidden flex flex-col justify-center">
+    <section className="bg-bg-primary pt-28 overflow-hidden flex flex-col justify-center">
 
       {/* ================= HEADING ================= */}
       <motion.div

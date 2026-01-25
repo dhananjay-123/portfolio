@@ -3,7 +3,19 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { topicsData } from "../../constants";
-
+import {motion} from 'framer-motion'
+const container = {
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+      staggerChildren: 0.12,
+    },
+  },
+};
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollAnimation() {
@@ -87,9 +99,15 @@ export default function ScrollAnimation() {
       className="relative h-[460vh] w-screen overflow-hidden"
     >
       {/* Heading */}
-      <h2 className="absolute top-30 left-1/2 -translate-x-1/2 text-4xl sm:text-5xl font-bold font-mono text-gray-900 tracking-tight z-50 text-text-primary">
+      <motion.h2
+      variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      
+      className="absolute top-30 left-1/2 flex items-center text-center -translate-x-1/2 text-2xl sm:text-4xl font-bold font-mono text-gray-900 tracking-tight z-50 text-text-primary">
         Experienced in 
-      </h2>
+      </motion.h2>
 
       <div className="relative w-full h-screen">
         {topicsData.map((item, index) => (

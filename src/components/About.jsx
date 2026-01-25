@@ -42,7 +42,7 @@ const About = () => {
 
     </section>
     <div 
-        className="w-full h-screen bg-bg-primary flex justify-center flex-col"
+        className="w-full h-screen bg-bg-primary flex justify-center flex-col text-text-primary"
         >
       <InfiniteMenu items={technologies}
     scale={1} />

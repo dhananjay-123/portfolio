@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { mat4, quat, vec2, vec3 } from 'gl-matrix';
-import './InfiniteMenu.css';
 
 const discVertShaderSource = `#version 300 es
 
@@ -760,7 +759,7 @@ class InfiniteGridMenu {
     this.control.update(deltaTime, this.TARGET_FRAME_DURATION);
 
     let positions = this.instancePositions.map(p => vec3.transformQuat(vec3.create(), p, this.control.orientation));
-    const scale = 0.3;
+    const scale = 0.15;
     const SCALE_INTENSITY = 0.6;
     positions.forEach((p, ndx) => {
       const s = (Math.abs(p[2]) / this.SPHERE_RADIUS) * SCALE_INTENSITY + (1 - SCALE_INTENSITY);
@@ -789,6 +788,7 @@ class InfiniteGridMenu {
     gl.enable(gl.DEPTH_TEST);
 
     gl.clearColor(0.027, 0.039, 0.071, 1.0);
+
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     gl.uniformMatrix4fv(this.discLocations.uWorldMatrix, false, this.worldMatrix);
@@ -959,17 +959,85 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
   };
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100%' }} className='text-text-primary'>
-      <canvas id="infinite-grid-menu-canvas" ref={canvasRef} />
+    <div className="relative w-full h-full">
+      <canvas
+        id="infinite-grid-menu-canvas"
+        ref={canvasRef}
+        className="cursor-grab w-full h-full overflow-hidden relative outline-none active:cursor-grabbing"
+      />
 
       {activeItem && (
         <>
-          <h2 className={`face-title ${isMoving ? 'inactive' : 'active'} `}>{activeItem.title}</h2>
+          <h2
+            className={`
+              hidden lg:block
+          select-none
+          absolute
+          font-black
+          [font-size:4rem]
+          left-[1.6em]
+          top-1/2
+          transform
+          translate-x-[20%]
+          -translate-y-1/2
+          transition-all
+          ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+          ${
+            isMoving
+              ? 'opacity-0 pointer-events-none duration-[100ms]'
+              : 'opacity-100 pointer-events-auto duration-[500ms]'
+          }
+        `}
+          >
+            {activeItem.title}
+          </h2>
 
-          <p className={`face-description ${isMoving ? 'inactive' : 'active'}`}> {activeItem.description}</p>
+          <p
+            className={`
+              hidden lg:block
+          select-none
+          absolute
+          max-w-[10ch]
+          text-[1.5rem]
+          top-1/2
+          right-[1%]
+          transition-all
+          ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+          ${
+            isMoving
+              ? 'opacity-0 pointer-events-none duration-[100ms] translate-x-[-60%] -translate-y-1/2'
+              : 'opacity-100 pointer-events-auto duration-[500ms] translate-x-[-90%] -translate-y-1/2'
+          }
+        `}
+          >
+            {activeItem.description}
+          </p>
 
-          <div onClick={handleButtonClick} className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
-            <p className="action-button-icon">&#x2197;</p>
+          <div
+            onClick={handleButtonClick}
+            className={`
+          absolute
+          left-1/2
+          z-10
+          w-[60px]
+          h-[60px]
+          grid
+          place-items-center
+          bg-[#00ffff]
+          border-[5px]
+          border-black
+          rounded-full
+          cursor-pointer
+          transition-all
+          ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+          ${
+            isMoving
+              ? 'bottom-[-80px] opacity-0 pointer-events-none duration-[100ms] scale-0 -translate-x-1/2'
+              : 'bottom-[3.8em] opacity-100 pointer-events-auto duration-[500ms] scale-100 -translate-x-1/2'
+          }
+        `}
+          >
+            <p className="select-none relative text-[#060010] top-[2px] text-[26px]">&#x2197;</p>
           </div>
         </>
       )}
