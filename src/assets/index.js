@@ -11,8 +11,8 @@ import para8 from "./para8.jpg";
 import para9 from "./para9.png";  
 import parabg from "./parabg.jpg";
 
-import bg from "./bg.png";
-import windowimg from "./window2.png";
+import bg from "./bgcomp.png";
+import windowimg from "./window2comp.png";
 
 import herobanner from "./herobanner.png";
 
