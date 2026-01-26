@@ -134,7 +134,7 @@ export default function ScrollAnimation() {
                 decoding="async"
                 fetchPriority="low"
                 className="absolute inset-0 w-full h-full
-                           object-cover opacity-60
+                           object-cover opacity-90
                            will-change-transform
                            pointer-events-none"
               />
