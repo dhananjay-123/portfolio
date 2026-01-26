@@ -1,6 +1,6 @@
 // import { logo} from "../assets";
 import { Description } from "../constants";
-import AnimatedText from "./TextVariations/AnimatedText";
+
 import Paragraph from "./TextVariations/Paragraph";
 // import HouseCanvas from "./Canvas/hero3d";
 import FuturisticHeading from "./TextVariations/FuturisticHeading";
@@ -14,32 +14,18 @@ const Hero = () => {
   return (
    <div>
 
-    <div className="w-full h-full bg-amber-50">
+    <div className="w-full h-full ">
       <HeroScroll/>
     </div>
 
-     <div className="w-full py-1 bg-bg-primary justify-center p-7 sm:px-24 lg:px-40">
+     <div className="w-full py-1 bg-grid justify-center p-7 sm:px-24 lg:px-40">
 
 
       
 
 
       {/* Top section */}
-      <div className="flex flex-col pt-25 pb-5">
-        <div className="w-full flex flex-row py-2 justify-center">
-          
-
-          <AnimatedText
-            className="pl-20 text-text-primary text-lg sm:text-2xl font-mono"
-            text={`Hi, I'm Dhananjay, designing products developing and always learning something new`}
-          />
-        </div>
-
-        {/* Hero banner */}
-        <div className="relative w-full overflow-hidden">
-          
-        </div>
-      </div>
+      
 
       {/* Heading */}
       <div className="pl-5 pr-5 pt-10">

@@ -236,3 +236,68 @@ html {
 
 
 
+.grid-bg {
+  background-color: #0b0e14;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.micro-grid-bg {
+  background-color: #0b0e14;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.glow-grid-bg {
+  background-color: #0b0e14;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(88, 101, 242, 0.12), transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+}
+.perspective-grid {
+  background-color: #0b0e14;
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to right,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px
+    );
+  background-size: 50px 50px;
+  transform: perspective(800px) rotateX(55deg);
+  transform-origin: top;
+}
+.bg-grid {
+  background-color: #0b0e14;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@keyframes grid-drift {
+  from {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 0 0, 40px 40px, 40px 40px;
+  }
+}
+
+.bg-grid {
+  animation: grid-drift 40s linear infinite;
+}
+
+
+
+
+

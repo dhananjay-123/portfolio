@@ -109,7 +109,8 @@ function TiltCard({ skill }) {
     </p>
 
     {/* Accent bar */}
-    <div className="h-1 w-20 bg-linear-to-r from-indigo-400 to-purple-500 rounded-full" />
+    <div className="mt-3 h-0.5 w-full rounded-full bg-blue-400/50 shadow-[0_0_6px_rgba(96,165,250,0.25)]" />
+
   </div>
 </div>
 

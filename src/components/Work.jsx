@@ -13,17 +13,17 @@ import MouseScroll from "./MouseScroll/MouseScroll";
 const Work = () => {
   const targetRef = useRef(null);
 
-  
+
 
   return (
-    <div className="w-full bg-bg-primary relative overflow-clip">
-       {/* <h2 className="text-text-muted text-3xl lg:text-5xl font-bold font-[Inter]">
+    <div className="w-[100vw] bg-grid relative overflow-clip">
+      {/* <h2 className="text-text-muted text-3xl lg:text-5xl font-bold font-[Inter]">
               I have <span className="text-text-primary">1+ years</span> of experience
             </h2> */}
 
-           
-      
-            {/* <Timeline>
+
+
+      {/* <Timeline>
               {workExperience.map((exp, i) => (
                 <TimelineItem
                   key={i}
@@ -36,26 +36,26 @@ const Work = () => {
               ))}
             </Timeline> */}
 
-             <div className="">
-      <MouseScroll />
-    </div>
+      <div className="">
+        <MouseScroll />
+      </div>
 
-             
-      
+
+
       <div
-      
-      className="w-full bg-bg-primary relative overflow-hidden flex  "
-       
-    >
 
-      
+        className="w-full bg-grid relative overflow-hidden flex  "
 
-      {/* Cards */}
-     <ScrollAnimation />
-      
-    </div>
+      >
 
-   
+
+
+        {/* Cards */}
+        <ScrollAnimation />
+
+      </div>
+
+
     </div>
 
   );

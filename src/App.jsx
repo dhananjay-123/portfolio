@@ -1,9 +1,12 @@
 import { HashRouter } from "react-router-dom";
 import { About, Contact, Work, Hero, Navbar } from "./components";
+import Cursor from "./Cursor";
 
 const App = () => {
   return (
     <HashRouter>
+
+      <Cursor />
       <Navbar />
 
       <section id="home">

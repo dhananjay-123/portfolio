@@ -1,7 +1,10 @@
 import { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {bg,windowimg} from "../../assets/"
+import { bg, windowimg } from "../../assets/"
+import AnimatedText from "../TextVariations/AnimatedText";
+import ScrollIndicator from "./ScrollIndicator";
+import ScrambledText from '../TextVariations/ScrambledText';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,20 +37,20 @@ export default function HeroScroll() {
       /* ---------- BACKGROUND (FAR) ---------- */
       tl.fromTo(
         ".night-bg",
-        { scale: 1.5, y:"40%",x:"15%" },
-        { scale: 1.3, y:"150", ease: "none",x:"12%" }, // stronger zoom & upward
+        { scale: 1.5, y: "40%", x: "15%" },
+        { scale: 1.3, y: "150", ease: "none", x: "12%" }, // stronger zoom & upward
         0
       );
 
       /* ---------- WINDOW (CLOSE) ---------- */
       /* ---------- WINDOW (CLOSE) ---------- */
-tl.fromTo(
-  ".window-layer",
-  { scale: 1, y: 0 },
-  { scale: 6, y: 400, ease: "none" ,x:-300}, // more zoom & upward
-  0
-)
-.to(".window-layer", { opacity: 0, ease: "none" }, 0.1);
+      tl.fromTo(
+        ".window-layer",
+        { scale: 1, y: 0 },
+        { scale: 6, y: 400, ease: "none", x: 0 }, // more zoom & upward
+        0
+      )
+        .to(".window-layer", { opacity: 0, ease: "none" }, 0.1);
 
 
       /* ---------- TEXT / HEADLINES ---------- */
@@ -62,7 +65,7 @@ tl.fromTo(
         .to(
           [".headline-1", ".headline-2", ".atmosphere"],
           { opacity: 0, y: -300 }, // fade out upward
-          0.7
+          0.8
         );
     }, heroRef);
 
@@ -89,6 +92,35 @@ tl.fromTo(
 
         {/* ---------- WINDOW (OVERLAPPING) ---------- */}
         <div className="window-layer absolute inset-0 z-10 flex items-center justify-center transform-gpu">
+          {/* ================= TEXT OVER WINDOW ================= */}
+          <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none right-[60vw]">
+            <div className="text-center drop-shadow-xl px-4">
+              {/* Small top label */}
+              <ScrambledText
+                className="scrambled-text-demo"
+                radius={100}
+                duration={1.5}
+                speed={0.3}
+                scrambleChars=".:"
+                classname=""
+              >
+                Welcome to a space where pixels meet purpose. <br />
+
+                Step through the window and explore the layers of design, code, and creativity. I craft in every interface.
+              </ScrambledText>
+
+
+
+
+
+
+            </div>
+            <ScrollIndicator />
+
+          </div>
+
+
+          {/* <h1 className="relative ">Hello</h1> */}
           <img
             src={WINDOW_IMG}
             className="w-full h-full object-cover rounded-xl shadow-[0_40px_120px_rgba(0,0,0,0.7)]"
@@ -98,26 +130,34 @@ tl.fromTo(
 
         {/* ---------- TEXT ---------- */}
         <div className="headline-1 absolute inset-0 z-20 flex items-center justify-center text-center px-10">
-          <h1 className="text-4xl font-light tracking-wide">
-            This is not a hero section.
-          </h1>
+          <div className="flex flex-col pt-25 pb-5">
+            <div className="w-[50vw] flex flex-row py-2 justify-center text-xl sm:text-2xl md:text-3xl font-mono">
+
+
+              I build interactive, responsive experiences that not only look beautiful but feel intuitive — transforming ideas into digital realities. Scroll further to see my journey of curiosity, precision, and creativity.
+            </div>
+
+
+            {/* Hero banner */}
+
+          </div>
         </div>
 
         <div className="headline-2 absolute inset-0 z-20 flex items-center justify-center text-center px-10">
           <h1 className="text-4xl font-light tracking-wide">
-            It is a descent into depth.
+
           </h1>
         </div>
 
         <div className="atmosphere absolute bottom-24 z-20 w-full text-center text-sm opacity-80 tracking-wider">
-          You move forward. The space responds.
+
         </div>
       </section>
 
       {/* ================= NEXT SECTION ================= */}
-      <section className="h-screen flex items-center justify-center bg-black text-white">
-        <h1 className="text-4xl">Next section (scroll works)</h1>
-      </section>
+      {/* <section className="h-screen flex items-center justify-center bg-black text-white">
+       
+      </section> */}
     </>
   );
 }

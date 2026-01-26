@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaLinkedinIn, FaGithub, FaInstagram, FaEnvelope ,FaDownload} from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaInstagram, FaEnvelope, FaDownload } from "react-icons/fa";
 
 const container = {
   hidden: { opacity: 0, y: 60 },
@@ -48,42 +48,42 @@ function Contact() {
       >
         <div className="flex flex-col gap-10 px-7 sm:px-24">
           <motion.h1
-          variants={item}
-          className="text-5xl lg:text-6xl font-bold font-[Inter] text-text-muted"
-        >
-          Let’s <span className="futuristic-gradient">Connect</span>
-        </motion.h1>
+            variants={item}
+            className="text-5xl lg:text-6xl font-bold font-[Inter] text-text-muted"
+          >
+            Let’s <span className="futuristic-gradient">Connect</span>
+          </motion.h1>
 
-        <motion.p
-          variants={item}
-          className="text-text-muted text-xl lg:text-2xl mt-4 max-w-xl font-mono"
-        >
-          Build something meaningful, fast, and future-ready.
-        </motion.p>
+          <motion.p
+            variants={item}
+            className="text-text-muted text-xl lg:text-2xl mt-4 max-w-xl font-mono"
+          >
+            Build something meaningful, fast, and future-ready.
+          </motion.p>
         </div>
         <motion.div
           variants={item}
           className="text-text-muted text-xl lg:text-2xl mt-4 max-w-xl font-mono gap-10 flex flex-col justify-end text-center pr-1 overflow-hidden "
         >
-          
+
           <div>
-            <p className="font-mono text-green-400 text-xl lg:text-3xl">dhananjayagrawalmain001@gmail.com</p> 
+            <p className="font-mono text-green-400 text-xl lg:text-3xl">dhananjayagrawalmain001@gmail.com</p>
           </div>
           <div className="flex justify-end">
-  <a
-    href="/Dhananjay_CV.pdf"
-    download
-    className="bg-amber-300 w-[40%] py-3 rounded-full flex items-center justify-center gap-2 font-semibold hover:bg-amber-400 transition"
-  >
-    <FaDownload className="text-lg" />
-    Download CV
-  </a>
-</div>
-          
+            <a
+              href="/Dhananjay_CV.pdf"
+              download
+              className="bg-amber-300 w-[40%] py-3 rounded-full flex items-center justify-center gap-2 font-semibold hover:bg-amber-400 transition"
+            >
+              <FaDownload className="text-lg" />
+              Download CV
+            </a>
+          </div>
+
         </motion.div>
       </motion.div>
 
-     
+
 
       {/* ================= FOOTER ================= */}
       <motion.footer

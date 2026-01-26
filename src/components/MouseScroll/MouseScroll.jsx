@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useScroll, motion, useTransform } from "framer-motion";
 
-const TOTAL_FRAMES = 192;
+const TOTAL_FRAMES = 232;
 const pad = (n) => String(n).padStart(5, "0");
 
+/* ------------------ Text Animation ------------------ */
 const container = {
   hidden: { opacity: 0, y: 60 },
   visible: {
@@ -34,7 +35,7 @@ function Loader({ progress }) {
 /* ------------------ Story Overlay ------------------ */
 function StoryOverlay({ progress }) {
   const blocks = [
-    { at: 0.0, align: "left", title: "Frontend Web Developer", sub: "Freelance | Jan 2024" },
+    { at: 0.1, align: "left", title: "Frontend Web Developer", sub: "Freelance | Jan 2024" },
     { at: 0.25, align: "right", title: "Intern", sub: "Tech Solutions | Jun 2024 - Dec 2024" },
     { at: 0.5, align: "left", title: "Web Development Intern", sub: "Creative Minds | Jan 2025 - May 2025" },
     { at: 0.75, align: "right", title: "Intern", sub: "Innovatech | Jun 2025 - Dec 2025" },
@@ -47,19 +48,18 @@ function StoryOverlay({ progress }) {
         return (
           <div
             key={i}
-            className={`absolute transition-all duration-500 ease-out 
+            className={`absolute transition-all duration-500 ease-out
               ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}
-              ${b.align === "left"
-                ? "bottom-0 left-30 text-left"
-                : b.align === "right"
-                ? "bottom-0 right-30 text-right"
-                : "bottom-0 left-1/2 -translate-x-1/2 text-center"
+              ${
+                b.align === "left"
+                  ? "bottom-10 left-24 text-left"
+                  : "bottom-10 right-24 text-right"
               }`}
           >
-            <h2 className="text-4xl font-mono font-medium tracking-tight text-accent-success">
+            <h2 className="text-4xl font-mono tracking-tight text-accent-success">
               {b.title}
             </h2>
-            <p className="mt-2 font-mono text-sm tracking-tight text-text-primary">
+            <p className="mt-2 font-mono text-sm text-text-primary">
               {b.sub}
             </p>
           </div>
@@ -85,13 +85,14 @@ export default function MouseScroll() {
     offset: ["start start", "end end"],
   });
 
-  // ---------------- Preload Images ----------------
+  /* ---------- Preload Frames ---------- */
   useEffect(() => {
     let count = 0;
     const imgs = [];
+
     for (let i = 1; i <= TOTAL_FRAMES; i++) {
       const img = new Image();
-      img.src = `/frames/${pad(i)}.jpg`; // path to frames
+      img.src = `/frames3/${pad(i)} copy.webp`;
       img.onload = () => {
         count++;
         setLoadedCount(count);
@@ -104,9 +105,10 @@ export default function MouseScroll() {
     }
   }, []);
 
-  // ---------------- Canvas Resize ----------------
+  /* ---------- Canvas Resize ---------- */
   useEffect(() => {
     if (!loaded) return;
+
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
@@ -114,28 +116,41 @@ export default function MouseScroll() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const w = window.innerWidth;
       const h = window.innerHeight;
+
       canvas.style.width = w + "px";
       canvas.style.height = h + "px";
       canvas.width = w * dpr;
       canvas.height = h * dpr;
+
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
+
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
   }, [loaded]);
 
-  // ---------------- Scroll → Frame Mapping ----------------
+  /* ---------- Scroll → Frame Mapping (SLOWED) ---------- */
   useEffect(() => {
     if (!loaded) return;
+
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
+    const SCROLL_START = 0.05;
+    const SCROLL_END = 0.9;
+
     return scrollYProgress.on("change", (v) => {
-      const eased = v * v * (3 - 2 * v); // smoothstep
+      let t = (v - SCROLL_START) / (SCROLL_END - SCROLL_START);
+      t = Math.min(Math.max(t, 0), 1);
+
+      // ultra-smooth cinematic easing
+      const eased = t * t * t * (t * (6 * t - 15) + 10);
+
       const frame = Math.floor(eased * (TOTAL_FRAMES - 1));
       if (frame === lastFrame.current) return;
       lastFrame.current = frame;
+
       setProgress(v);
 
       const img = imagesRef.current[frame];
@@ -143,7 +158,6 @@ export default function MouseScroll() {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // scale to viewport
       const cw = window.innerWidth;
       const ch = window.innerHeight;
       const imgRatio = img.width / img.height;
@@ -158,9 +172,9 @@ export default function MouseScroll() {
         drawW = ch * imgRatio;
       }
 
-      const scale = 0.95;
+      const scale = 1.3;
       drawW *= scale;
-      drawH *= scale;
+      drawH *= scale * 0.78;
 
       const x = (cw - drawW) / 2;
       const y = (ch - drawH) / 2;
@@ -169,34 +183,38 @@ export default function MouseScroll() {
     });
   }, [loaded, scrollYProgress]);
 
-  // ---------------- Transform scroll → exit animation ----------------
-  // We'll fade out and move up the sticky wrapper as scroll approaches the end
-  const opacity = useTransform(scrollYProgress, [0.7, 1], [1, 0]); // fade out at end
-  const translateY = useTransform(scrollYProgress, [0.7, 1], [0, -100]); // move up at end
+  /* ---------- Exit Animation (Delayed) ---------- */
+  const opacity = useTransform(scrollYProgress, [0.85, 1], [1, 0]);
+  const translateY = useTransform(scrollYProgress, [0.85, 1], [0, -120]);
 
   return (
-    <section ref={containerRef} className="relative h-[400vh] bg-bg-primary">
+    <section
+      ref={containerRef}
+      className="relative h-[700vh] w-[100vw] bg-grid"
+    >
       {!loaded && (
         <Loader progress={Math.round((loadedCount / TOTAL_FRAMES) * 100)} />
       )}
 
-      {/* Sticky wrapper for video + title + overlay */}
-      {/* Motion.div applies fade-out + move-up transition tied to scroll */}
       <motion.div
         style={{ opacity, y: translateY }}
-        className="sticky top-10 h-[80vh] w-full flex items-center justify-center flex-col"
+        className="sticky top-10 h-[80vh] w-full flex items-center justify-center"
       >
         <motion.h2
           variants={container}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-text-muted text-3xl lg:text-5xl font-bold font-[Inter] pb-10"
+          className="absolute z-20 pb-[50vh] text-3xl lg:text-5xl font-bold text-text-muted"
         >
           I have <span className="text-text-primary">1+ years</span> of experience
         </motion.h2>
 
-        <canvas ref={canvasRef} className="max-h-[50vh] max-w-[70vw] pb-5" />
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 h-screen w-screen"
+        />
+
         <StoryOverlay progress={progress} />
       </motion.div>
     </section>

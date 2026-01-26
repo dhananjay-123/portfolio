@@ -48,7 +48,12 @@ const HeroStackCard = ({
           {description}
         </p>
 
-        <div className="h-1 w-16 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full mt-2" />
+        <div className="mt-3 h-0.5 w-full rounded-full bg-blue-400/50 shadow-[0_0_6px_rgba(96,165,250,0.25)]" />
+
+
+
+
+
       </div>
     </div>
   );

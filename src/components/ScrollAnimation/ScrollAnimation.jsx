@@ -98,7 +98,7 @@ export default function ScrollAnimation() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[460vh] w-screen overflow-hidden bg-bg-primary"
+      className="relative h-[460vh] w-screen overflow-hidden bg-grid"
     >
       {/* Heading */}
       <motion.h2
@@ -159,6 +159,8 @@ export default function ScrollAnimation() {
                 <p className="hidden sm:block text-sm opacity-80">
                   {item.description}
                 </p>
+                <div className="mt-3 h-0.5 w-full rounded-full bg-blue-400/50 shadow-[0_0_6px_rgba(96,165,250,0.25)]" />
+
               </div>
             </div>
           </div>
