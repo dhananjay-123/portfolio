@@ -5,7 +5,7 @@ import { NavLinks } from '../constants'
 import ProgressBar from './ProgressBar/ProgressBar'
 import ThemeToggle from './ThemeToggle'
 
-import Parallax from './Parallax/Parallax'
+// import Parallax from './Parallax/Parallax'
 //hello
 
 const Navbar = () => {

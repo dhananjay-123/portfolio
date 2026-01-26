@@ -1,4 +1,4 @@
-import { logo, herobanner } from "../assets";
+// import { logo} from "../assets";
 import { Description } from "../constants";
 import AnimatedText from "./TextVariations/AnimatedText";
 import Paragraph from "./TextVariations/Paragraph";

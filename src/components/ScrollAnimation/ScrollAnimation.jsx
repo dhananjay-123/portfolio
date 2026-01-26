@@ -3,8 +3,11 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { topicsData } from "../../constants";
-import {motion} from 'framer-motion'
-const container = {
+import { motion } from "framer-motion";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const containerVariants = {
   hidden: { opacity: 0, y: 60 },
   visible: {
     opacity: 1,
@@ -16,7 +19,6 @@ const container = {
     },
   },
 };
-gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollAnimation() {
   const containerRef = useRef(null);
@@ -25,7 +27,6 @@ export default function ScrollAnimation() {
   useGSAP(
     () => {
       const images = imageRefs.current;
-
       if (!images.length) return;
 
       const startPositions = [
@@ -48,8 +49,8 @@ export default function ScrollAnimation() {
         { x: 0, y: 180, rotation: 4 },
       ];
 
-      images.forEach((image, i) => {
-        gsap.set(image, {
+      images.forEach((card, i) => {
+        gsap.set(card, {
           position: "absolute",
           left: "50%",
           top: "50%",
@@ -60,6 +61,7 @@ export default function ScrollAnimation() {
           rotation: gsap.utils.random(-60, 60),
           scale: 0.5,
           autoAlpha: 1,
+          force3D: true, // 🔥 GPU acceleration
         });
       });
 
@@ -74,9 +76,9 @@ export default function ScrollAnimation() {
         },
       });
 
-      images.forEach((image, i) => {
+      images.forEach((card, i) => {
         tl.to(
-          image,
+          card,
           {
             x: finalPositions[i]?.x || 0,
             y: finalPositions[i]?.y || 0,
@@ -96,17 +98,19 @@ export default function ScrollAnimation() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[460vh] w-screen overflow-hidden"
+      className="relative h-[460vh] w-screen overflow-hidden bg-bg-primary"
     >
       {/* Heading */}
       <motion.h2
-      variants={container}
+        variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-      
-      className="absolute top-30 left-1/2 flex items-center text-center -translate-x-1/2 text-2xl sm:text-4xl font-bold font-mono text-gray-900 tracking-tight z-50 text-text-primary">
-        Experienced in 
+        className="absolute top-32 left-1/2 -translate-x-1/2 z-50
+                   text-2xl sm:text-4xl font-bold font-mono
+                   text-text-primary tracking-tight"
+      >
+        Experienced in
       </motion.h2>
 
       <div className="relative w-full h-screen">
@@ -115,15 +119,30 @@ export default function ScrollAnimation() {
             key={index}
             ref={(el) => (imageRefs.current[index] = el)}
           >
-            <div className="relative w-[220px] sm:w-[340px] p-4 sm:p-10 rounded-2xl overflow-hidden bg-white/10 border border-white/20 shadow-2xl backdrop-blur-md">
+            <div
+              className="relative w-[220px] sm:w-[340px]
+                         p-4 sm:p-10 rounded-2xl
+                         overflow-hidden
+                         bg-white/10 border border-white/20
+                         shadow-2xl backdrop-blur-sm"
+            >
+              {/* Optimized Image */}
               <img
                 src={item.image}
                 alt={item.heading}
-                className="absolute inset-0 w-full h-full object-cover opacity-60"
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
+                className="absolute inset-0 w-full h-full
+                           object-cover opacity-60
+                           will-change-transform
+                           pointer-events-none"
               />
 
+              {/* Overlay */}
               <div className="absolute inset-0 bg-black/60" />
 
+              {/* Content */}
               <div className="relative z-10 flex flex-col gap-3 text-white">
                 <span className="text-sm text-indigo-400 font-mono">
                   {item.index}

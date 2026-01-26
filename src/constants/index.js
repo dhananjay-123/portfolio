@@ -2,9 +2,18 @@
 import {
     
     javascript,
-    
+    herocard1,
+    herocard2,
+    herocard3,
+    herocard4,
     reactjs,
-    
+    stack1,
+    stack2,
+    stack3,
+    stack4,
+    stack5,
+    stack6,
+    stack7,
     tailwind,
     nodejs,
    
@@ -74,7 +83,7 @@ export const heroCardsData = [
     description:
       "Building modern, animated, and accessible user interfaces with a strong focus on performance and UX.",
     image:
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1600&auto=format", // code + laptop
+      herocard1, // code + laptop
   },
   {
     id: 2,
@@ -84,7 +93,7 @@ export const heroCardsData = [
     description:
       "Designing smooth, meaningful animations that enhance usability without overwhelming the user.",
     image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1600&auto=format", // abstract UI shapes
+      herocard2, // abstract UI shapes
   },
   {
     id: 3,
@@ -94,7 +103,7 @@ export const heroCardsData = [
     description:
       "Enjoy solving complex problems and writing clean, maintainable code with scalable logic.",
     image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format", // dark abstract tech
+      herocard3, // dark abstract tech
   },
   {
     id: 4,
@@ -104,7 +113,7 @@ export const heroCardsData = [
     description:
       "Constantly exploring new tools, frameworks, and patterns to stay ahead in modern web development.",
     image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format", // workspace / growth vibe
+      herocard4, // workspace / growth vibe
   },
 ];
 
@@ -120,7 +129,7 @@ export const topicsData = [
     description:
       "Three.js is a lightweight JavaScript library that makes working with WebGL simpler. You can build immersive 3D experiences, from visualizations to games, without deep knowledge of graphics programming.",
     image:
-      "https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=1600&auto=format", // abstract geometry
+      stack1, // abstract geometry
   },
   {
     index: "02",
@@ -132,7 +141,7 @@ export const topicsData = [
     description:
       "Tailwind CSS is a utility-first CSS framework that allows developers to build custom designs quickly.",
     image:
-      "https://images.unsplash.com/photo-1618556450994-a6a128ef0d9d?q=80&w=1600&auto=format", // minimal UI / grids
+      stack2, // minimal UI / grids
   },
   {
     index: "03",
@@ -144,7 +153,7 @@ export const topicsData = [
     description:
       "React emphasizes declarative programming and component-based architecture for scalable UI development.",
     image:
-      "https://images.unsplash.com/photo-1600267165477-6d4cc741b379?q=80&w=1600&auto=format", // abstract flow / components
+      stack3, // abstract flow / components
   },
   {
     index: "04",
@@ -156,7 +165,7 @@ export const topicsData = [
     description:
       "JavaScript is the foundational language of the web, enabling dynamic behavior and interactivity.",
     image:
-      "https://images.unsplash.com/photo-1629904853716-f0bc54eea481?q=80&w=1600&auto=format", // dark code abstraction
+      stack4, // dark code abstraction
   },
  
     {
@@ -169,7 +178,7 @@ export const topicsData = [
     description:
       "Framer Motion provides an easy and powerful API for animations in React, helping interfaces feel alive and responsive.",
     image:
-      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1600&auto=format", // motion / abstract flow
+      stack5, // motion / abstract flow
   },
   {
     index: "06",
@@ -181,7 +190,7 @@ export const topicsData = [
     description:
       "GSAP is a robust animation library trusted for its performance, control, and smooth rendering across browsers.",
     image:
-      "https://images.unsplash.com/photo-1614850715649-1d0106293bd1?q=80&w=1600&auto=format", // timelines / motion abstraction
+      stack6, // timelines / motion abstraction
   },
   {
     index: "07",
@@ -193,7 +202,7 @@ export const topicsData = [
     description:
       "UI/UX focuses on understanding user needs and designing experiences that feel natural, accessible, and engaging.",
     image:
-      "https://images.unsplash.com/photo-1587440871875-191322ee64b0?q=80&w=1600&auto=format", // design workspace
+      stack7, // design workspace
   },
   
  

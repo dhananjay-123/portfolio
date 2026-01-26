@@ -1,4 +1,4 @@
-import { motion, useScroll } from "framer-motion";
+import {  useScroll } from "framer-motion";
 
 function ProgressBar() {
   const { scrollYProgress } = useScroll();

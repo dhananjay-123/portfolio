@@ -1,11 +1,11 @@
 import { useRef } from "react";
 
-import { topicsData } from "../constants";
+// import { topicsData } from "../constants";
 
 
 
 
-import { workExperience } from "../constants";
+// import { workExperience } from "../constants";
 // import Timeline from "../components/WorkTimeline/Timeline";
 // import TimelineItem from "../components/WorkTimeline/TimelineItem";
 import ScrollAnimation from "./ScrollAnimation/ScrollAnimation";
