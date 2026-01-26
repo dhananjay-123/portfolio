@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
 
     <div className='h-full w-full overflow-hidden flex justify-center' >
-    <nav className="flex pt-5 pb-5 px-4 sm:px-10 lg:px-40 fixed bg-bg-primary w-full z-60 justify-between mx-auto items-center">
+    <nav className="flex pt-5 pb-5 px-4 sm:px-10 lg:px-40 fixed bg-bg-primary opacity-80 w-full z-60 justify-between mx-auto items-center">
 
       {/* Logo */}
       <Link

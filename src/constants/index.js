@@ -16,6 +16,13 @@ import {
     stack7,
     tailwind,
     nodejs,
+
+    hor1,  hor2,
+    hor3,
+    hor4,
+    hor5,
+    hor6,
+    hor7,
    
     git,
     figma,
@@ -219,7 +226,7 @@ export const skills = [
     description:
       "Build interactive 3D scenes for the web using WebGL. Useful for product showcases, portfolios, animations, and immersive UI elements.",
     image:
-      "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?q=80&w=1600&auto=format", // abstract 3D
+      hor1, // abstract 3D
   },
   {
     index: "02",
@@ -228,7 +235,7 @@ export const skills = [
     description:
       "Rapidly design responsive layouts using utility classes. Eliminates custom CSS overhead while maintaining consistency and scalability.",
     image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1600&auto=format", // UI abstraction
+      hor2, // UI abstraction
   },
   {
     index: "03",
@@ -237,7 +244,7 @@ export const skills = [
     description:
       "Create reusable, state-driven user interfaces. Ideal for building scalable single-page applications with predictable rendering.",
     image:
-      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1600&auto=format", // react / code vibe
+      hor3, // react / code vibe
   },
   {
     index: "04",
@@ -246,7 +253,7 @@ export const skills = [
     description:
       "Handle application logic, events, asynchronous operations, and DOM interactions that power modern web applications.",
     image:
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1600&auto=format", // code closeup
+      hor4, // code closeup
   },
   {
     index: "05",
@@ -255,7 +262,7 @@ export const skills = [
     description:
       "Manage source code, track changes, collaborate with teams, and automate workflows using repositories and pull requests.",
     image:
-      "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=1600&auto=format", // terminals
+      hor5, // terminals
   },
   {
     index: "06",
@@ -264,7 +271,7 @@ export const skills = [
     description:
       "Develop robust, scalable backend systems with strong typing, memory management, and enterprise-level architecture.",
     image:
-      "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1600&auto=format"
+      hor6
   },
   {
     index: "07",
@@ -273,7 +280,7 @@ export const skills = [
     description:
       "Write low-level, performance-critical code with fine control over memory, commonly used in systems and competitive programming.",
     image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format", // hardware / low level
+      hor7, // hardware / low level
   },
   {
     index: "08",
@@ -282,7 +289,7 @@ export const skills = [
     description:
       "Strengthen logical thinking by mastering data structures and algorithms for optimized and efficient problem solving.",
     image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format", // abstract logic
+      hor2, // abstract logic
   },
 ];
 

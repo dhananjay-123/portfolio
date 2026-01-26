@@ -17,6 +17,13 @@ import stack4 from "./stack4.webp";
 import stack5 from "./stack5.webp";
 import stack6 from "./stack6.webp";
 import stack7 from "./stack7.webp";
+import hor1 from "./hor1.webp";
+import hor2 from "./hor2.webp";
+import hor3 from "./hor3.webp";
+import hor4 from "./hor4.webp";
+import hor5 from "./hor5.webp";
+import hor6 from "./hor6.webp";
+import hor7 from "./hor7.webp";
 
 
 import para8 from "./para8.jpg";  
@@ -62,6 +69,14 @@ export {
   docker,
   figma,
   git,
+
+
+  hor1,  hor2,
+  hor3,
+  hor4,
+  hor5,
+  hor6,
+  hor7,
  
   javascript,
   mongodb,
