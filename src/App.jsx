@@ -13,7 +13,7 @@ const App = () => {
         <Hero />
       </section>
 
-      <section className="scroll-mt-20" id="work">
+      <section className="scroll-mt-10" id="work">
         <Work />
       </section>
 

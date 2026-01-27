@@ -29,6 +29,47 @@ export default function ScrollAnimation() {
       const images = imageRefs.current;
       if (!images.length) return;
 
+      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+      /* =======================
+         MOBILE — CPU SAFE MODE
+         ======================= */
+      if (isMobile) {
+        images.forEach((card) => {
+          gsap.set(card, {
+            clearProps: "transform",
+            position: "relative",
+            left: "auto",
+            top: "auto",
+            xPercent: 0,
+            yPercent: 0,
+            x: 0,
+            y: 0,
+            rotation: 0,
+            scale: 1,
+            autoAlpha: 1,
+          });
+
+          gsap.from(card, {
+            opacity: 0,
+            y: 24,
+            duration: 0.4,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          });
+        });
+
+        return; // ⛔ stop here for mobile
+      }
+
+      /* =======================
+         DESKTOP — SCROLL ANIMATION
+         ======================= */
+
       const startPositions = [
         { x: "-120vw", y: "-50vh" },
         { x: "100vw", y: "-60vh" },
@@ -61,7 +102,6 @@ export default function ScrollAnimation() {
           rotation: gsap.utils.random(-60, 60),
           scale: 0.5,
           autoAlpha: 1,
-          force3D: true, // 🔥 GPU acceleration
         });
       });
 
@@ -69,8 +109,8 @@ export default function ScrollAnimation() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=2500",
-          scrub: true,
+          end: () => `+=${window.innerHeight * 2}`,
+          scrub: 0.8,
           pin: true,
           anticipatePin: 1,
         },
@@ -100,7 +140,6 @@ export default function ScrollAnimation() {
       ref={containerRef}
       className="relative h-[460vh] w-screen overflow-hidden bg-grid"
     >
-      {/* Heading */}
       <motion.h2
         variants={containerVariants}
         initial="hidden"
@@ -126,7 +165,6 @@ export default function ScrollAnimation() {
                          bg-white/10 border border-white/20
                          shadow-2xl backdrop-blur-sm"
             >
-              {/* Optimized Image */}
               <img
                 src={item.image}
                 alt={item.heading}
@@ -135,14 +173,11 @@ export default function ScrollAnimation() {
                 fetchPriority="low"
                 className="absolute inset-0 w-full h-full
                            object-cover opacity-90
-                           will-change-transform
                            pointer-events-none"
               />
 
-              {/* Overlay */}
               <div className="absolute inset-0 bg-black/60" />
 
-              {/* Content */}
               <div className="relative z-10 flex flex-col gap-3 text-white">
                 <span className="text-sm text-indigo-400 font-mono">
                   {item.index}
@@ -159,8 +194,10 @@ export default function ScrollAnimation() {
                 <p className="hidden sm:block text-sm opacity-80">
                   {item.description}
                 </p>
-                <div className="mt-3 h-0.5 w-full rounded-full bg-blue-400/50 shadow-[0_0_6px_rgba(96,165,250,0.25)]" />
 
+                <div className="mt-3 h-0.5 w-full rounded-full
+                                bg-blue-400/50
+                                shadow-[0_0_6px_rgba(96,165,250,0.25)]" />
               </div>
             </div>
           </div>

@@ -93,7 +93,7 @@ export default function HeroScroll() {
         {/* ---------- WINDOW (OVERLAPPING) ---------- */}
         <div className="window-layer absolute inset-0 z-10 flex items-center justify-center transform-gpu">
           {/* ================= TEXT OVER WINDOW ================= */}
-          <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none right-[60vw]">
+          <div className="absolute inset-0 z-20 flex items-center justify-center right-[60vw]">
             <div className="text-center drop-shadow-xl px-4">
               {/* Small top label */}
               <ScrambledText
