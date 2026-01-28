@@ -1,9 +1,10 @@
-// import { logo} from "../assets";
+
 import { Description } from "../constants";
 
 import Paragraph from "./TextVariations/Paragraph";
-// import HouseCanvas from "./Canvas/hero3d";
+
 import FuturisticHeading from "./TextVariations/FuturisticHeading";
+
 
 
 import { FiBriefcase, FiMapPin, FiClock } from "react-icons/fi";
@@ -13,7 +14,7 @@ import HeroScroll from "./HeroScroll/HeroScroll";
 const Hero = () => {
   return (
    <div>
-
+    
     <div className="w-full h-full ">
       <HeroScroll/>
     </div>

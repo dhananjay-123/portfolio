@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { NavLinks } from '../constants'
 import ProgressBar from './ProgressBar/ProgressBar'
 import ThemeToggle from './ThemeToggle'
+import ShinyText from './TextVariations/ShinyText'
 
 // import Parallax from './Parallax/Parallax'
 //hello
@@ -27,8 +28,32 @@ const Navbar = () => {
             window.scrollTo(0, 0)
           }}
           className="text-text-primary hover:text-text-muted flex font-[Inter]"
-        >
-          Dhananjay&nbsp;<span className='sm:block hidden'> Agrawal</span>
+        ><ShinyText
+  text="Dhananjay"
+  speed={0.5}
+  delay={1}
+  color="#d5c3c3"
+  shineColor="#ffffff"
+  spread={45}
+  direction="left"
+  yoyo
+  pauseOnHover={false}
+  disabled={false}
+/>
+          &nbsp;<span className='sm:block hidden'> 
+            <ShinyText
+  text="Agrawal"
+  speed={0.5}
+  delay={1}
+  color="#d5c3c3"
+  shineColor="#ffffff"
+  spread={45}
+  direction="left"
+  yoyo
+  pauseOnHover={false}
+  disabled={false}
+/>
+          </span>
         </Link>
 
         {/* Horizontal Progress Bar */}

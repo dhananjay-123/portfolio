@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { topicsData } from "../../constants";
 import { motion } from "framer-motion";
+import GradientText from "../GradientText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,42 +30,7 @@ export default function ScrollAnimation() {
       const images = imageRefs.current;
       if (!images.length) return;
 
-      const isMobile = window.matchMedia("(max-width: 767px)").matches;
-
-      /* =======================
-         MOBILE — CPU SAFE MODE
-         ======================= */
-      if (isMobile) {
-        images.forEach((card) => {
-          gsap.set(card, {
-            clearProps: "transform",
-            position: "relative",
-            left: "auto",
-            top: "auto",
-            xPercent: 0,
-            yPercent: 0,
-            x: 0,
-            y: 0,
-            rotation: 0,
-            scale: 1,
-            autoAlpha: 1,
-          });
-
-          gsap.from(card, {
-            opacity: 0,
-            y: 24,
-            duration: 0.4,
-            ease: "power1.out",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            },
-          });
-        });
-
-        return; // ⛔ stop here for mobile
-      }
+      
 
       /* =======================
          DESKTOP — SCROLL ANIMATION
@@ -149,7 +115,14 @@ export default function ScrollAnimation() {
                    text-2xl sm:text-4xl font-bold font-mono
                    text-text-primary tracking-tight"
       >
-        Experienced in
+        <GradientText
+          colors={["#5227FF","#FF9FFC","#B19EEF","#a12bb1","#5227ff"]}
+          animationSpeed={2.5}
+          showBorder
+          className="custom-class"
+        >
+          Experienced In
+        </GradientText>
       </motion.h2>
 
       <div className="relative w-full h-screen">

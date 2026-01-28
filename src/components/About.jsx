@@ -3,7 +3,7 @@ import { useState } from "react";
 import { technologies } from "../constants";
 import HorizontalScroll from "../components/HorizontalScroll/HorizontalScroll";
 
-
+import GradientText from "./GradientText";
 
 import InfiniteMenu from "./InfiniteMenu/InfiniteMenu";
 
@@ -23,7 +23,14 @@ const About = () => {
           {/* Sticky Header (ENDS with this wrapper) */}
           <div className="sticky top-35 z-0 flex items-center gap-3 px-4 bg-grid/80 backdrop-blur-md">
             <h1 className="text-text-primary text-3xl lg:text-5xl w-1/2 font-bold font-[Inter]">
-              Skills and Tools
+              <GradientText
+  colors={["#5227FF","#FF9FFC","#B19EEF","#a12bb1","#5227ff"]}
+  animationSpeed={2.5}
+  showBorder
+  className="custom-class"
+>
+  Skills and Tools
+</GradientText>
             </h1>
 
           </div>

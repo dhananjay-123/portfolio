@@ -2,7 +2,7 @@ import { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { bg, windowimg } from "../../assets/"
-import AnimatedText from "../TextVariations/AnimatedText";
+import GradientText from "../GradientText";
 import ScrollIndicator from "./ScrollIndicator";
 import ScrambledText from '../TextVariations/ScrambledText';
 
@@ -133,8 +133,15 @@ export default function HeroScroll() {
           <div className="flex flex-col pt-25 pb-5">
             <div className="w-[50vw] flex flex-row py-2 justify-center text-xl sm:text-2xl md:text-3xl font-mono">
 
-
-              I build interactive, responsive experiences that not only look beautiful but feel intuitive — transforming ideas into digital realities. Scroll further to see my journey of curiosity, precision, and creativity.
+              <GradientText
+                colors={["#ffffff","#cfd9ff","#9fb4ff","#e4e9ff","#ffffff"]}
+                animationSpeed={1}
+                // showBorder
+                className="custom-class"
+              >
+                I build interactive, responsive experiences that not only look beautiful but feel intuitive — transforming ideas into digital realities. Scroll further to see my journey of curiosity, precision, and creativity.
+              </GradientText>
+              
             </div>
 
 
