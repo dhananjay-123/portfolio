@@ -80,7 +80,7 @@ const Hero = () => {
         <div className="w-full h-[70vh] lg:h-[100vh] lg:w-[60%] flex justify-center items-center">
           {/* <HouseCanvas /> */}
           <HeroCards/>
-        </div>z
+        </div>
       </div>
       
     </div>
