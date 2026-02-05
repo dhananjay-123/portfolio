@@ -44,7 +44,7 @@ const Work = () => {
 
       <div
 
-        className="w-full bg-grid relative overflow-hidden flex  "
+        className="w-full bg-grid relative overflow-hidden flex justify-center  "
 
       >
 

@@ -1,10 +1,11 @@
-import { useRef } from "react";
+import { useRef,useState,useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { topicsData } from "../../constants";
 import { motion } from "framer-motion";
 import GradientText from "../GradientText";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,16 +26,21 @@ export default function ScrollAnimation() {
   const containerRef = useRef(null);
   const imageRefs = useRef([]);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   useGSAP(
     () => {
+      if (isMobile) return;
+
       const images = imageRefs.current;
       if (!images.length) return;
-
-      
-
-      /* =======================
-         DESKTOP — SCROLL ANIMATION
-         ======================= */
 
       const startPositions = [
         { x: "-120vw", y: "-50vh" },
@@ -45,7 +51,6 @@ export default function ScrollAnimation() {
         { x: "0vw", y: "-120vh" },
         { x: "10vw", y: "100vh" },
       ];
-
       const finalPositions = [
         { x: -120, y: 30, rotation: 8 },
         { x: 0, y: 0, rotation: -6 },
@@ -55,7 +60,6 @@ export default function ScrollAnimation() {
         { x: 0, y: 0, rotation: 0 },
         { x: 0, y: 180, rotation: 4 },
       ];
-
       images.forEach((card, i) => {
         gsap.set(card, {
           position: "absolute",
@@ -76,7 +80,7 @@ export default function ScrollAnimation() {
           trigger: containerRef.current,
           start: "top top",
           end: () => `+=${window.innerHeight * 2}`,
-          scrub: 0.8,
+          scrub: 0.5,
           pin: true,
           anticipatePin: 1,
         },
@@ -101,6 +105,59 @@ export default function ScrollAnimation() {
     { scope: containerRef }
   );
 
+     if (isMobile) {
+    return (
+      <section className="py-20 flex flex-col items-center gap-10 px-30 h-800 ">
+        <motion.h2
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-2xl font-bold font-mono"
+        >
+          <GradientText
+            colors={["#FFFFFF", "#E4E4E7", "#C7C7CD", "#A1A1AA", "#6B6B70"]
+}
+            animationSpeed={2}
+          >
+            Experienced In
+          </GradientText>
+        </motion.h2>
+        {topicsData.map((item, i) => (
+          <div className="relative w-[260px] h-[200px] rounded-xl overflow-hidden shadow-md">
+
+  {/* background image */}
+  <img
+    src={item.image}
+    alt={item.heading}
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+
+  {/* overlay */}
+  <div className="absolute inset-0 bg-black/60" />
+
+  {/* content */}
+  <div className="relative z-10 h-full p-4 flex flex-col justify-end text-white">
+
+    <span className="text-xs text-indigo-400 font-mono">
+      {item.index}
+    </span>
+
+    <h2 className="font-bold font-mono text-lg leading-tight">
+      {item.heading}
+    </h2>
+
+    <p className="text-sm font-mono opacity-80">
+      {item.title}
+    </p>
+
+  </div>
+</div>
+
+        ))}
+      </section>
+    );
+  }
   return (
     <section
       ref={containerRef}
@@ -116,9 +173,10 @@ export default function ScrollAnimation() {
                    text-text-primary tracking-tight"
       >
         <GradientText
-          colors={["#5227FF","#FF9FFC","#B19EEF","#a12bb1","#5227ff"]}
+          colors={["#FFFFFF", "#E4E4E7", "#C7C7CD", "#A1A1AA", "#6B6B70"]
+}
           animationSpeed={2.5}
-          showBorder
+          
           className="custom-class"
         >
           Experienced In

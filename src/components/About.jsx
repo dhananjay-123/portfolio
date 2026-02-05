@@ -21,12 +21,13 @@ const About = () => {
         <div className="relative mt-24 pb-40 ">
 
           {/* Sticky Header (ENDS with this wrapper) */}
-          <div className="sticky top-35 z-0 flex items-center gap-3 px-4 bg-grid/80 backdrop-blur-md">
+          <div className="sticky top-25 sm:top-35 z-0 flex items-center gap-3 px-4 bg-grid/80 backdrop-blur-md ">
             <h1 className="text-text-primary text-3xl lg:text-5xl w-1/2 font-bold font-[Inter]">
               <GradientText
-  colors={["#5227FF","#FF9FFC","#B19EEF","#a12bb1","#5227ff"]}
+  colors={["#FFFFFF", "#E4E4E7", "#C7C7CD", "#A1A1AA", "#6B6B70"]
+}
   animationSpeed={2.5}
-  showBorder
+  
   className="custom-class"
 >
   Skills and Tools

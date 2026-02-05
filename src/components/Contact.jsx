@@ -44,7 +44,7 @@ function Contact() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="mb-20 flex md:flex-row flex-col gap-10 "
+        className="sm:mb-20 mb-[-23px] flex md:flex-row flex-col gap-10 "
       >
         <div className="flex flex-col gap-10 px-7 sm:px-24">
           <motion.h1
@@ -63,13 +63,13 @@ function Contact() {
         </div>
         <motion.div
           variants={item}
-          className="text-text-muted text-xl lg:text-2xl mt-4 max-w-xl font-mono gap-10 flex flex-col justify-end text-center pr-1 overflow-hidden "
+          className="text-text-muted text-xl lg:text-2xl mt-4 max-w-xl font-mono gap-10 flex flex-col justify-end text-center pr-1 overflow-hidden"
         >
 
           <div>
             <p className="font-mono text-green-400 text-xl lg:text-3xl">dhananjayagrawalmain001@gmail.com</p>
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-end pr-10 sm:pr-0">
             <a
               href="/Dhananjay_CV.pdf"
               download
