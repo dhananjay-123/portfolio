@@ -107,7 +107,7 @@ export default function ScrollAnimation() {
 
      if (isMobile) {
     return (
-      <section className="py-20 flex flex-col items-center gap-10 px-30 h-[500dvh] ">
+      <section className="py-20 flex flex-col items-center gap-10 px-30 h-[460dvh] ">
         <motion.h2
           variants={containerVariants}
           initial="hidden"
