@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { bg } from "../assets";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 import { technologies } from "../constants";
 import HorizontalScroll from "../components/HorizontalScroll/HorizontalScroll";
@@ -10,10 +12,19 @@ import InfiniteMenu from "./InfiniteMenu/InfiniteMenu";
 
 const About = () => {
   const [progress, setProgress] = useState(0);
+  const { scrollY } = useScroll();
+  const bgTranslateY = useTransform(scrollY, [0, 1000], [0, 150]);
 
   return (
     <div className="flex flex-col">
-      <section className="w-full bg-grid pt-20 flex justify-center flex-col sm:px-24 lg:px-40 px-7 pb-16">
+      <motion.div
+        className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat "
+        style={{
+          backgroundImage: `url(${bg})`,
+          y: bgTranslateY,
+        }}
+      />
+      <section className="w-full pt-20 flex justify-center flex-col sm:px-24 lg:px-40 px-7 pb-16">
 
         {/* EXPERIENCE */}
 
@@ -50,7 +61,7 @@ const About = () => {
 
       </section>
       <div
-        className="w-full h-screen bg-grid flex justify-center flex-col text-text-primary"
+        className="w-full h-screen flex justify-center flex-col text-text-primary"
       >
         <InfiniteMenu items={technologies}
           scale={1} />

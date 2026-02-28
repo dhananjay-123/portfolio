@@ -21,13 +21,15 @@ const ThemeToggle = () => {
   }, [theme]);
 
   return (
-    <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-md bg-bg-tertiary text-text-primary transition-colors duration-300"
-      aria-label="Toggle theme"
-    >
-      {theme === "dark" ? "☀️" : "🌙"}
-    </button>
+
+    null
+    // <button
+    //   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+    //   className="p-2 rounded-md bg-bg-tertiary text-text-primary transition-colors duration-300"
+    //   aria-label="Toggle theme"
+    // >
+    //   {theme === "dark" ? "☀️" : "🌙"}
+    // </button>
   );
 };
 

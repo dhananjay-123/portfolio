@@ -24,6 +24,7 @@ import hor4 from "./hor4.webp";
 import hor5 from "./hor5.webp";
 import hor6 from "./hor6.webp";
 import hor7 from "./hor7.webp";
+import herobg from "./herobg.webp";
 
 
 import para8 from "./para8.jpg";  
@@ -69,6 +70,7 @@ export {
   docker,
   figma,
   git,
+  herobg,
 
 
   hor1,  hor2,

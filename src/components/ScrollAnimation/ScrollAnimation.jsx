@@ -161,7 +161,7 @@ export default function ScrollAnimation() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[300vh] w-screen overflow-hidden bg-grid"
+      className="relative h-[300vh] w-screen overflow-hidden "
     >
       <motion.h2
         variants={containerVariants}

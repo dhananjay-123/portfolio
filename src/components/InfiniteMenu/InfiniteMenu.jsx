@@ -630,7 +630,7 @@ class InfiniteGridMenu {
   }
 
   #init(onInit) {
-    this.gl = this.canvas.getContext('webgl2', { antialias: true, alpha: false });
+    this.gl = this.canvas.getContext('webgl2', { antialias: true, alpha: true });
     const gl = this.gl;
     if (!gl) {
       throw new Error('No WebGL 2 context!');
@@ -787,7 +787,8 @@ class InfiniteGridMenu {
     gl.enable(gl.CULL_FACE);
     gl.enable(gl.DEPTH_TEST);
 
-    gl.clearColor(0.027, 0.039, 0.071, 1.0);
+    // gl.clearColor(0.027, 0.039, 0.071, 1.0);
+    gl.clearColor(0.0, 0.0, 0.0, 0.0);  // ✅ fully transparent
 
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
