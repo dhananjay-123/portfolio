@@ -2,12 +2,13 @@ import { useState } from "react";
 import { bg } from "../assets";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-import { technologies } from "../constants";
+// import { technologies } from "../constants";
 import HorizontalScroll from "../components/HorizontalScroll/HorizontalScroll";
 
 import GradientText from "./GradientText";
+import TechStack from "./TechStack";
 
-import InfiniteMenu from "./InfiniteMenu/InfiniteMenu";
+// import InfiniteMenu from "./InfiniteMenu/InfiniteMenu";
 
 
 const About = () => {
@@ -60,12 +61,14 @@ const About = () => {
 
 
       </section>
-      <div
+
+      <TechStack />
+      {/* <div
         className="w-full h-screen flex justify-center flex-col text-text-primary"
       >
         <InfiniteMenu items={technologies}
           scale={1} />
-      </div>
+      </div> */}
 
     </div>
   );

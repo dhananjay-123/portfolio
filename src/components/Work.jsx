@@ -7,10 +7,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 
 // import { workExperience } from "../constants";
-// import Timeline from "../components/WorkTimeline/Timeline";
-// import TimelineItem from "../components/WorkTimeline/TimelineItem";
+
 import ScrollAnimation from "./ScrollAnimation/ScrollAnimation";
 import MouseScroll from "./MouseScroll/MouseScroll";
+import Timeline from "./TimeLine/Timeline";
 const Work = () => {
   const targetRef = useRef(null);
   const { scrollY } = useScroll();
@@ -37,26 +37,15 @@ const Work = () => {
 
 
 
-      {/* <Timeline>
-              {workExperience.map((exp, i) => (
-                <TimelineItem
-                  key={i}
-                  index={i}
-                  title={exp.position}
-                  company={exp.company}
-                  date={exp.duration}
-                  description={exp.description}
-                />
-              ))}
-            </Timeline> */}
+      
 
-      <div
+      {/* <div
      
       >
         <MouseScroll />
-      </div>
+      </div> */}
 
-
+        <Timeline />
 
       <div
 

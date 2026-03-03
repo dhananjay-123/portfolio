@@ -297,46 +297,60 @@ export const skills = [
 export const technologies = [
   {
     image: javascript,
-    link: 'https://google.com/',
-    title: 'JavaScript',
-    description: 'This is pretty cool, right?'
+    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    title: "JavaScript",
+    level: 90,
+    description:
+      "Core language of the web used to build interactive applications."
   },
   {
     image: reactjs,
-    link: 'https://google.com/',
-    title: 'React JS',
-    description: 'This is pretty cool, right?'
+    link: "https://react.dev/",
+    title: "React JS",
+    level: 85,
+    description:
+      "Component-based library for building scalable user interfaces."
   },
   {
     image: tailwind,
-    link: 'https://google.com/',
-    title: 'Tailwind CSS',
-    description: 'This is pretty cool, right?'
+    link: "https://tailwindcss.com/",
+    title: "Tailwind CSS",
+    level: 88,
+    description:
+      "Utility-first CSS framework for modern responsive UI."
   },
   {
     image: nodejs,
-    link: 'https://google.com/',
-    title: 'Node JS',
-    description: 'This is pretty cool, right?'
+    link: "https://nodejs.org/",
+    title: "Node JS",
+    level: 75,
+    description:
+      "Backend runtime for scalable server-side applications."
   },
   {
     image: git,
-    link: 'https://google.com/',
-    title: 'Git',
-    description: 'This is pretty cool, right?'
+    link: "https://git-scm.com/",
+    title: "Git",
+    level: 80,
+    description:
+      "Distributed version control system for collaboration."
   },
   {
     image: figma,
-    link: 'https://google.com/',
-    title: 'Figma',
-    description: 'This is pretty cool, right?'
+    link: "https://www.figma.com/",
+    title: "Figma",
+    level: 70,
+    description:
+      "UI/UX design and prototyping tool."
   },
   {
     image: docker,
-    link: 'https://google.com/',
-    title: 'Docker',
-    description: 'This is pretty cool, right?'
-  },
+    link: "https://www.docker.com/",
+    title: "Docker",
+    level: 65,
+    description:
+      "Containerization platform for consistent deployments."
+  }
 ];
 
 
