@@ -6,8 +6,6 @@ import ProgressBar from './ProgressBar/ProgressBar'
 import ThemeToggle from './ThemeToggle'
 import ShinyText from './TextVariations/ShinyText'
 
-// import Parallax from './Parallax/Parallax'
-//hello
 
 const Navbar = () => {
   const DURATION = 0.25

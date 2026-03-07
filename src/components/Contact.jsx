@@ -67,7 +67,7 @@ function Contact() {
         >
 
           <div>
-            <p className="font-mono text-green-400 text-xl lg:text-3xl">dhananjayagrawalmain001@gmail.com</p>
+            <p className="font-mono text-green-400 text-xl lg:text-3xl">dhananjayworkmain@gmail.com</p>
           </div>
           <div className="flex justify-end pr-10 sm:pr-0">
             <a
@@ -194,14 +194,14 @@ function Contact() {
               Click below to open your email client:
             </p>
             <a
-              href="mailto:youremail@example.com"
-              className="block text-center bg-white text-bg-primary py-3 rounded-xl font-bold hover:scale-105 transition"
+              href="dhananjayworkmain@gmail.com"
+              className="block text-center bg-blue-600 text-bg-primary py-3 rounded-xl font-bold hover:scale-105 transition"
             >
               Email Me
             </a>
             <button
               onClick={() => setShowEmailModal(false)}
-              className="absolute top-3 right-3 text-text-muted text-xl"
+              className="absolute top-3 right-3 text-text-muted text-xl cursor-pointer"
             >
               ✕
             </button>
