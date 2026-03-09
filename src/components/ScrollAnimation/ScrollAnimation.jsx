@@ -107,7 +107,7 @@ export default function ScrollAnimation() {
 
      if (isMobile) {
     return (
-      <section className="py-20 flex flex-col items-center gap-10 px-30 h-[460dvh] ">
+      <section className="py-10 flex flex-col items-center gap-5  ">
         <motion.h2
           variants={containerVariants}
           initial="hidden"
@@ -124,7 +124,7 @@ export default function ScrollAnimation() {
           </GradientText>
         </motion.h2>
         {topicsData.map((item, i) => (
-          <div className="relative w-[260px] h-[200px] rounded-xl overflow-hidden shadow-md">
+          <div className="relative w-[260px] h-[21vh] rounded-xl overflow-hidden shadow-md">
 
   {/* background image */}
   <img
@@ -183,7 +183,7 @@ export default function ScrollAnimation() {
         </GradientText>
       </motion.h2>
 
-      <div className="relative w-full h-screen">
+      <div className="relative w-full min-h-screen">
         {topicsData.map((item, index) => (
           <div
             key={index}

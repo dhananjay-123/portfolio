@@ -4,7 +4,7 @@ import { heroCardsData } from "../../constants/index";
 
 const HeroCards = () => {
   return (
-    <div className="w-[50vw] h-[50vh]">
+    <div className="w-[50vw] h-[45vh] sm:h-[50vh]">
       <Stack
         randomRotation
         sensitivity={150}

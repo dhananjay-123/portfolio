@@ -37,7 +37,7 @@ const Work = () => {
 
       <div
 
-        className="w-full relative overflow-hidden flex justify-center  "
+        className="w-full relative flex justify-center h-670 sm:h-auto "
 
       >
 

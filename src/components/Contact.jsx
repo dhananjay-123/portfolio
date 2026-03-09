@@ -66,19 +66,21 @@ function Contact() {
           className="text-text-muted text-xl lg:text-2xl mt-4 max-w-xl font-mono gap-10 flex flex-col justify-end text-center pr-1 overflow-hidden"
         >
 
-          <div>
-            <p className="font-mono text-green-400 text-xl lg:text-3xl">dhananjayworkmain@gmail.com</p>
-          </div>
-          <div className="flex justify-end pr-10 sm:pr-0">
-            <a
-              href="/Dhananjay_CV.pdf"
-              download
-              className="bg-amber-300 w-[40%] py-3 rounded-full flex items-center justify-center gap-2 font-semibold hover:bg-amber-400 transition"
-            >
-              <FaDownload className="text-lg" />
-              Download CV
-            </a>
-          </div>
+          <div className="flex justify-center sm:justify-centert px-4">
+  <p className="font-mono text-green-400 text-2xl lg:text-3xl break-all text-center sm:text-left">
+    dhananjayworkmain@gmail.com
+  </p>
+</div>
+          <div className="flex justify-center sm:justify-end px-4 sm:px-0">
+  <a
+    href="/Dhananjay_CV.pdf"
+    download
+    className="bg-amber-300 w-full sm:w-auto px-6 py-2 rounded-full flex items-center justify-center gap-2 font-semibold hover:bg-amber-400 transition"
+  >
+    <FaDownload className="text-lg" />
+    Download CV
+  </a>
+</div>
 
         </motion.div>
       </motion.div>

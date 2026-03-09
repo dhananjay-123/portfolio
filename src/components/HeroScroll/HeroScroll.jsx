@@ -93,7 +93,7 @@ export default function HeroScroll() {
         {/* ---------- WINDOW (OVERLAPPING) ---------- */}
         <div className="window-layer absolute inset-0 z-10 flex items-center justify-center transform-gpu">
           {/* ================= TEXT OVER WINDOW ================= */}
-          <div className="absolute inset-0 z-20 flex items-center justify-center right-[60vw]">
+          <div className="absolute inset-0 z-20 flex items-center justify-center sm:right-[60vw]">
             <div className="text-center drop-shadow-xl px-4">
               {/* Small top label */}
               <ScrambledText
@@ -131,7 +131,7 @@ export default function HeroScroll() {
         {/* ---------- TEXT ---------- */}
         <div className="headline-1 absolute inset-0 z-20 flex items-center justify-center text-center px-10">
           <div className="flex flex-col pt-25 pb-5">
-            <div className="w-[50vw] flex flex-row py-2 justify-center text-xl sm:text-2xl md:text-3xl font-mono">
+            <div className="sm:w-[50vw] flex flex-row py-2 justify-center text-xl sm:text-2xl md:text-3xl font-mono">
 
               <GradientText
                 colors={["#ffffff","#cfd9ff","#9fb4ff","#e4e9ff","#ffffff"]}
